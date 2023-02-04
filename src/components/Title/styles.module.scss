@@ -22,5 +22,19 @@
         }
         
     }
-    
+}
+
+
+.back {
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    a {
+        background-color: var(--palette5);
+
+        &:hover {
+            background-color: var(--palette5-variant);
+        }
+    }
 }

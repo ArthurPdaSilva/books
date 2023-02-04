@@ -2,11 +2,21 @@ import Link from "next/link";
 import React from "react";
 import styles from "./styles.module.scss";
 
-export default function Title() {
+interface TitleProps {
+  header: string;
+  linkText: string;
+  link: string;
+}
+
+export default function Title({ header, linkText, link }: TitleProps) {
   return (
-    <div className={styles.title}>
-      <h1>Minhas Publicações</h1>
-      <Link href="/createPublications">Publicar mais</Link>
+    <div
+      className={
+        linkText === "Voltar" ? `${styles.title} ${styles.back}` : styles.title
+      }
+    >
+      <h1>{header}</h1>
+      <Link href={link}>{linkText}</Link>
     </div>
   );
 }

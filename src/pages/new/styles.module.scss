@@ -1,0 +1,69 @@
+.content {
+    margin-left: 200px;
+    padding: 10px 15px;
+    height: 100vh;
+    background-color: var(--palette2);
+
+    @media(max-width: 800px){
+        margin-left: 0;
+        padding: 0;
+    }
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 15px;
+    border-radius: var(--radius);
+    margin-top: 3rem;
+    background-color: var(--palette1);
+    gap: 10px;
+
+    h2 {
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    input, select, button {
+        width: 80%;
+        font-size: 1.4rem;
+        padding: 10px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+
+
+    input {
+        &::placeholder {
+            color: var(--palette2-variant);
+        }
+    }
+
+    button {
+        background-color: var(--palette4);
+        color: var(--palette2);
+        transition: background-color ease-in .3s;
+
+        &:hover {
+            background-color: var(--palette4-variant);
+        }
+    }
+}
+
+.labelFile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 1.4rem;
+    color: var(--palette2);
+    cursor: pointer;
+
+    input[type='file'] {
+        display: none;
+    }
+
+}

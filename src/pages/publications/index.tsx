@@ -13,7 +13,11 @@ export default function Publications() {
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.content}>
-          <Title />
+          <Title
+            header="Minhas publicações"
+            link="/new"
+            linkText="Publicar mais"
+          />
           <Carrosel />
         </div>
       </div>
