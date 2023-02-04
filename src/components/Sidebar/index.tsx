@@ -4,7 +4,6 @@ import styles from "./styles.module.scss";
 import {
   MdAccountCircle,
   MdHome,
-  MdFavorite,
   MdAssignment,
   MdExitToApp,
   MdSettings,
@@ -34,10 +33,6 @@ export default function Sidebar() {
         <Link className={styles.groupLink} href="/dashboard">
           <MdHome size={42} />
           Tela Inicial
-        </Link>
-        <Link className={styles.groupLink} href="/favoritos">
-          <MdFavorite size={42} />
-          Favoritos
         </Link>
         <Link className={styles.groupLink} href="/publications">
           <MdAssignment size={42} />
