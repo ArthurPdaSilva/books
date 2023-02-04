@@ -8,6 +8,10 @@
     &::-webkit-scrollbar{
         display: none;
     }
+
+    @media(max-width: 800px) {
+        margin-top: 3rem;
+    }
 }
 
 .rectangle {
@@ -22,9 +26,9 @@
 .buttons {
     display: flex;
     position: absolute;
-    gap: 1000px;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 85%;
 
     button{
         background-color: transparent;

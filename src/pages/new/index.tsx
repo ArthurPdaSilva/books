@@ -30,12 +30,12 @@ export default function Publications() {
               <option value="">Reflexão</option>
             </select>
             <label className={styles.labelFile}>
-              Enviar Thumbnail
+              Thumbnail:
               <MdOutlineFileUpload color="#fff" size={30} />
               <input type="file" accept="image/*" placeholder="Enviar imagem" />
             </label>
             <label className={styles.labelFile}>
-              Enviar Arquivo
+              Arquivo:
               <MdOutlineFileUpload color="#fff" size={30} />
               <input type="file" accept=".pdf" placeholder="Enviar arquivo" />
             </label>

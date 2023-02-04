@@ -8,7 +8,7 @@
     a {
         display: flex;
         justify-content: center;
-        width: 15vw;
+        width: 30%;
         padding: .5rem;
         font-size: 1.3rem;
         border-radius: var(--radius);
@@ -20,7 +20,14 @@
         &:hover {
             background-color: var(--palette3-variant);
         }
-        
+    }
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+
+        a {
+            width: 100%;
+        }
     }
 }
 
@@ -35,6 +42,14 @@
 
         &:hover {
             background-color: var(--palette5-variant);
+        }
+    }
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+
+        a {
+            width: 100%;
         }
     }
 }
