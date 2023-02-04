@@ -5,22 +5,19 @@
     justify-content: center;
     background-color: var(--palette1);
     height: 100vh;
-    gap: 20px;
 
-    & > h1{
-        text-align: center;
-        font-size: 4rem;
-        font-weight: normal;
+    h1 {
+        font-size: 3rem;
     }
 
-    & > h1, a{
+    h1, a {
         color: var(--palette2);
     }
 
-    a{
+    a {
         text-align: center;
 
-        span{
+        span {
             color: var(--palette4);
         }
 
@@ -32,6 +29,7 @@
             }
         }
     }
+
 }
 
 
@@ -40,13 +38,16 @@
 .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 40px;
-    gap: 20px;
+    padding: 1rem;
+    gap: 1rem;
+    width: 80vw;
 
     input {
-        padding: 15px;
+        padding: 1rem;
+        width: 40vw;
         font-size: 1.4rem;
-        width: 30vw;
         background-color: var(--palette3);
         border-radius: 10px;
         box-shadow: var(--shadow);
@@ -57,10 +58,9 @@
         }
     }
 
-
-
-    button{
-        padding: 15px;
+    button {
+        width: 40vw;
+        padding: 1rem;
         font-size: 1.4rem;
         border-radius: 10px;
         background-color: var(--palette4);
@@ -68,23 +68,24 @@
         box-shadow: var(--shadow);
     }
 
-    @media(max-width: 800px){
-        input, div > input{
-            width: 70vw;
+    @media(max-width: 800px) { 
+        width: 100%;
+        input, button {
+            width: 100%;
         }
     }
 }
 
 .checkContainer {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 5px;
+    width: 50%;
 
-    input{
+    input {
         display: none;
     }
     
-    label:nth-child(2){
+    label:nth-child(2) {
         width: 24px;
         height: 24px;
         display: block;
@@ -106,6 +107,10 @@
     label:nth-child(3){
         color: var(--palette2);
         cursor: pointer;
+    }
+
+    @media(max-width: 800px) { 
+        width: 100%;
     }
 }
     

@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--palette1);
+    height: 100vh;
+}
+
+
+.containerError{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--palette2);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+
+    svg {
+        animation: animate 1s infinite;
+    }
+
+    h1, p {
+        text-align: center;
+    }
+
+    p{
+        font-size: 1.5rem;
+        width: 40vw;
+    }
+
+    @media(max-width: 800px) {
+        width: 80%;
+
+        p {
+            width: 100%;
+            margin-bottom: .5rem;
+        }
+
+
+    }
+    
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
