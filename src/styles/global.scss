@@ -1,0 +1,48 @@
+
+:root{
+    --palette1: #55917F;
+    --palette2: #FFFBFA;
+    --palette2-variant: #d4d4d4;
+    --palette3: #4FB477;
+    --palette4: #364958;
+    --palette5: #262626;
+    --palette5-variant: #202020;
+    --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* All */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus{
+    outline: 0;
+}
+
+input, button{
+    border: none;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+html, body, #root{
+    overflow: hidden;
+    height: 100%;
+}

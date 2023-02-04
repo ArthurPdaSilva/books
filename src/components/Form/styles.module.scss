@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--palette1);
+    height: 100vh;
+    gap: 20px;
+
+    & > h1{
+        text-align: center;
+        font-size: 4rem;
+        font-weight: normal;
+    }
+
+    & > h1, a{
+        color: var(--palette2);
+    }
+
+    a{
+        text-align: center;
+
+        span{
+            color: var(--palette4);
+        }
+
+        &:hover {
+            color: var(--palette2-variant);
+
+            span {
+                color: var(--palette5-variant);
+            }
+        }
+    }
+}
+
+
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+
+    input {
+        padding: 15px;
+        font-size: 1.4rem;
+        width: 30vw;
+        background-color: var(--palette3);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        color: var(--palette2);
+
+        &::placeholder {
+            color: var(--palette2-variant)
+        }
+    }
+
+
+
+    button{
+        padding: 15px;
+        font-size: 1.4rem;
+        border-radius: 10px;
+        background-color: var(--palette4);
+        color: var(--palette2);
+        box-shadow: var(--shadow);
+    }
+
+    @media(max-width: 800px){
+        input, div > input{
+            width: 70vw;
+        }
+    }
+}
+
+.checkContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input{
+        display: none;
+    }
+    
+    label:nth-child(2){
+        width: 24px;
+        height: 24px;
+        display: block;
+        background-color: var(--palette4);
+        cursor: pointer;
+    }
+    
+    input:checked + label:nth-child(2)::after{
+        content: '';
+        display: inline-block;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 5px;
+        margin-left: 30%;
+        border-bottom: 5px solid var(--palette3);
+        border-right: 5px solid var(--palette3);
+    }
+
+    label:nth-child(3){
+        color: var(--palette2);
+        cursor: pointer;
+    }
+}
+    
