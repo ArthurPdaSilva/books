@@ -16,8 +16,8 @@ export default function Sidebar() {
 
   return (
     <div className={styles.sidebar}>
-      <Link href="/settings">
-        <MdAccountCircle size={192} />
+      <Link href="/profile">
+        <MdAccountCircle size={192} color="#fff" />
       </Link>
 
       <MdList size={50} onClick={() => setDisplayMenu(!displayMenu)} />
@@ -38,6 +38,10 @@ export default function Sidebar() {
         <Link className={styles.groupLink} href="/publicacoes">
           <MdAssignment size={42} />
           Publicações
+        </Link>
+        <Link className={styles.groupLink} href="/profile">
+          <MdSettings size={42} />
+          Perfil
         </Link>
         <button className={styles.groupLink}>
           <MdExitToApp size={42} />
