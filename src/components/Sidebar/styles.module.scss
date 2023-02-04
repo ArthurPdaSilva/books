@@ -1,0 +1,88 @@
+.sidebar {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    background-color: var(--palette1);
+
+    & > a {
+        margin-bottom: 2rem;
+        svg {
+            transition: all .3s ease-in;
+            &:hover {
+                color: var(--palette2-variant) !important;
+            }
+        }
+    }
+
+    & > svg:nth-child(2) {
+        display: none;
+    }
+
+    img {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    @media(max-width: 800px) {
+        width: 100%;
+        position: relative;
+        align-items: flex-end;
+        height: auto;
+
+        & > a, svg {
+            display: none;
+        }
+
+        svg:nth-child(2){
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media(max-width: 800px) {
+        align-items: center;
+        position: absolute;
+        overflow: hidden;
+        z-index: 99;
+        top: 45px;
+        transform: translateX(0%);
+        transition: all .4s ease-in;
+        align-items: center;
+        background-color:  var(--palette1);
+        width: 100%;    
+    }
+}
+
+
+.menuChecked {
+    @media(max-width: 800px) {
+        transform: translateX(150%);
+    }    
+}
+
+.groupLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    font-size: 1.2rem;
+    transition: all .3s ease-in;
+    color: var(--pallete2);
+    background-color: transparent;
+
+    &:hover{
+        color: var(--palette2-variant);
+    }
+    
+}

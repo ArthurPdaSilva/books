@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="author" content="Arthur Pereira da Silva" />
         <meta name="keywords" content="read, book, react, books" />
         <meta name="description" content="Web site for ardent readers" />
-        <link rel="shortcut icon" href="open-book.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"

@@ -6,7 +6,7 @@ export default function SignUp() {
   return (
     <>
       <Head>
-        <title>Books - Cadastrando - se</title>
+        <title>Books - Cadastrando-se</title>
       </Head>
       <Form typeForm="Cadastro" buttonText="Cadastrar">
         <Link href="/">
