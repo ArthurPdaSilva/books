@@ -20,7 +20,11 @@ export default function Sidebar() {
         <MdAccountCircle size={192} color="#fff" />
       </Link>
 
-      <MdList size={50} onClick={() => setDisplayMenu(!displayMenu)} />
+      <MdList
+        size={50}
+        onClick={() => setDisplayMenu(!displayMenu)}
+        color="#fff"
+      />
 
       <ul
         className={
@@ -35,7 +39,7 @@ export default function Sidebar() {
           <MdFavorite size={42} />
           Favoritos
         </Link>
-        <Link className={styles.groupLink} href="/publicacoes">
+        <Link className={styles.groupLink} href="/publications">
           <MdAssignment size={42} />
           Publicações
         </Link>

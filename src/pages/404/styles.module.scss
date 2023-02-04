@@ -15,7 +15,7 @@
     justify-content: space-around;
     background-color: var(--palette2);
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
 
     svg {

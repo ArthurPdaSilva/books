@@ -1,0 +1,11 @@
+.content {
+    margin-left: 200px;
+    padding: 10px 15px;
+    height: 100vh;
+    background-color: var(--palette2);
+
+    @media(max-width: 800px){
+        margin-left: 0;
+        padding: 0;
+    }
+}

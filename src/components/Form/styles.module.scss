@@ -49,7 +49,7 @@
         width: 40vw;
         font-size: 1.4rem;
         background-color: var(--palette3);
-        border-radius: 10px;
+        border-radius: var(--radius);
         box-shadow: var(--shadow);
         color: var(--palette2);
 
@@ -62,10 +62,15 @@
         width: 40vw;
         padding: 1rem;
         font-size: 1.4rem;
-        border-radius: 10px;
+        border-radius: var(--radius);
         background-color: var(--palette4);
         color: var(--palette2);
         box-shadow: var(--shadow);
+        transition: background-color ease-in .3s;
+
+        &:hover {
+            background-color: var(--palette4-variant);
+        }
     }
 
     @media(max-width: 800px) { 
