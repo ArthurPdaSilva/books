@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React, { ReactNode } from "react";
+import useAuth from "@/hooks/useAuth";
+import React, { useState, useCallback, ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 interface FormProps {
@@ -9,17 +9,61 @@ interface FormProps {
 }
 
 export default function Form({ typeForm, buttonText, children }: FormProps) {
+  const { signUp, signIn } = useAuth();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      signUp({ name, email, password });
+    },
+    [email, name, password, signUp]
+  );
+
+  const handleLogin = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      signIn({ email, password });
+    },
+    [email, password, signIn]
+  );
+
   return (
     <div className={styles.container}>
       <h1>{typeForm}</h1>
 
-      <form className={styles.form}>
+      <form
+        className={styles.form}
+        onSubmit={typeForm === "Cadastro" ? handleRegister : handleLogin}
+      >
         {typeForm === "Cadastro" && (
-          <input type="text" placeholder="Nome do usuário" required />
+          <input
+            type="text"
+            placeholder="Nome do usuário"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            minLength={5}
+            required
+          />
         )}
 
-        <input type="email" placeholder="email@gmail.com" required />
-        <input type="password" placeholder="******" required />
+        <input
+          type="email"
+          placeholder="email@gmail.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="******"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          minLength={8}
+          required
+        />
 
         {typeForm === "Login" && (
           <div className={styles.checkContainer}>

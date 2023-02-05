@@ -4,9 +4,13 @@
     flex-direction: column;
     width: 200px;
     height: 100%;
+    padding: 10px;
     background-color: var(--palette1);
 
     & > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 2rem;
         svg {
             transition: all .3s ease-in;

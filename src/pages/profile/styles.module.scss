@@ -42,7 +42,7 @@
 
     input:disabled, input:disabled::placeholder{
         cursor: not-allowed;
-        color:  rgba(85, 145, 127, 0.5);
+        color:  var(--palette2-variant);
     }  
 
     input {

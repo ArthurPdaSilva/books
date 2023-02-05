@@ -9,14 +9,37 @@ import {
   MdSettings,
   MdList,
 } from "react-icons/md";
+import useAuth from "@/hooks/useAuth";
+import Image from "next/image";
 
-export default function Sidebar() {
+interface SidebarProps {
+  avatarUrl?: string;
+}
+
+export default function Sidebar({ avatarUrl }: SidebarProps) {
   const [displayMenu, setDisplayMenu] = useState(false);
+  const { user, logout } = useAuth();
 
   return (
     <div className={styles.sidebar}>
       <Link href="/profile">
-        <MdAccountCircle size={192} color="#fff" />
+        {!avatarUrl || user?.avatarUrl === " " ? (
+          <MdAccountCircle size={192} color="#fff" />
+        ) : avatarUrl ? (
+          <Image
+            src={avatarUrl}
+            height={160}
+            width={160}
+            alt="Imagem do usuário"
+          />
+        ) : (
+          <Image
+            src={user?.avatarUrl as string}
+            height={160}
+            width={160}
+            alt="Imagem do usuário"
+          />
+        )}
       </Link>
 
       <MdList
@@ -42,7 +65,7 @@ export default function Sidebar() {
           <MdSettings size={42} />
           Perfil
         </Link>
-        <button className={styles.groupLink}>
+        <button className={styles.groupLink} onClick={logout}>
           <MdExitToApp size={42} />
           Sair
         </button>
