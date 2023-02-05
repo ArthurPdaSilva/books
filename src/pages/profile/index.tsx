@@ -4,6 +4,7 @@ import Switch from "@/components/Switch";
 import useAuth from "@/hooks/useAuth";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState, useCallback } from "react";
 import { MdAccountCircle, MdOutlineFileUpload } from "react-icons/md";
 import styles from "./styles.module.scss";
@@ -15,30 +16,31 @@ export default function Profile() {
   const [checked, setChecked] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState(user?.avatarUrl);
   const [imageAvatar, setImageAvatar] = useState<File | null>(null);
+  const router = useRouter();
 
-  const handleFile = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.value[0]) {
-        if (!e.target.files) return;
-        const image = e.target.files[0];
-        if (image.type === "image/jpeg" || image.type === "image/png") {
-          setImageAvatar(image);
-          setAvatarUrl(URL.createObjectURL(image));
-        } else {
-          alert("Envie uma imagem válida!");
-          return null;
-        }
+  const handleFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value[0]) {
+      if (!e.target.files) return;
+      const image = e.target.files[0];
+      if (image.type === "image/jpeg" || image.type === "image/png") {
+        setImageAvatar(image);
+        setAvatarUrl(URL.createObjectURL(image));
+      } else {
+        alert("Envie uma imagem válida!");
+        return null;
       }
-    },
-    [setImageAvatar, setAvatarUrl]
-  );
+    }
+  }, []);
 
   const submitType = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      updateUser({ imageAvatar, name: name as string });
+      await updateUser({ imageAvatar, name: name as string }).then(() => {
+        alert("Alterações feitas com sucesso!");
+        router.push("/dashboard");
+      });
     },
-    [imageAvatar, name, updateUser]
+    [imageAvatar, name, router, updateUser]
   );
 
   return (
@@ -47,7 +49,7 @@ export default function Profile() {
         <title>Books - Editar perfil</title>
       </Head>
       <div className={styles.container}>
-        <Sidebar avatarUrl={avatarUrl} />
+        <Sidebar />
         <div className={styles.content}>
           <h1>Perfil</h1>
 

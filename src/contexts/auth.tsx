@@ -12,7 +12,7 @@ interface AppContextInterface {
   user: UserType | null;
   signUp: ({ name, email, password }: RegisterProps) => void;
   signIn: ({ email, password }: LoginProps) => void;
-  updateUser: ({ imageAvatar, name }: UpdateProps) => void;
+  updateUser: ({ imageAvatar, name }: UpdateProps) => Promise<void>;
   logout: () => void;
 }
 
@@ -94,7 +94,6 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
       );
 
       saveChangeUser(changeUser);
-      alert("Alterações feitas com sucesso!");
     },
     [saveChangeUser, user]
   );

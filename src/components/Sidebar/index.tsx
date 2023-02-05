@@ -12,26 +12,15 @@ import {
 import useAuth from "@/hooks/useAuth";
 import Image from "next/image";
 
-interface SidebarProps {
-  avatarUrl?: string;
-}
-
-export default function Sidebar({ avatarUrl }: SidebarProps) {
+export default function Sidebar() {
   const [displayMenu, setDisplayMenu] = useState(false);
   const { user, logout } = useAuth();
 
   return (
     <div className={styles.sidebar}>
       <Link href="/profile">
-        {!avatarUrl || user?.avatarUrl === " " ? (
+        {user?.avatarUrl === " " ? (
           <MdAccountCircle size={192} color="#fff" />
-        ) : avatarUrl ? (
-          <Image
-            src={avatarUrl}
-            height={160}
-            width={160}
-            alt="Imagem do usuário"
-          />
         ) : (
           <Image
             src={user?.avatarUrl as string}
