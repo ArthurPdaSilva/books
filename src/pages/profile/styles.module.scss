@@ -6,10 +6,8 @@
     height: 100vh;
     margin-left: 200px;
     padding: 5px 15px;
-    background-color: var(--palette2);
 
     h1{
-        color:var(--palette1);
         font-weight: normal;
         font-size: 5rem;
     }
@@ -20,6 +18,89 @@
     }
 }
 
+.containerLight {
+    background-color: var(--palette2);
+
+    h1 {
+        color:var(--palette1);
+    }
+
+    form {
+        
+        label {
+            color: var(--palette1);
+
+            & > label {
+                background-color: var(--palette3) !important;
+            }
+        } 
+
+        input:disabled, input:disabled::placeholder{
+            color:  var(--palette4-variant);
+        }
+
+        input {
+            border-bottom: 2px solid var(--palette1);
+            color: var(--palette1);
+    
+            &::placeholder{
+                color: var(--palette1-variant);
+            }
+        }
+
+        button {
+            background-color:  var(--palette3);
+
+            &:hover {
+                background-color: var(--palette3-variant);
+            }
+        }
+    }
+    
+}
+
+.containerDark {
+    background-color: var(--palette5);
+
+    h1 {
+        color:var(--palette2);
+    }
+
+    form {
+
+        label {
+            color: var(--palette2);
+
+            & > label {
+                background-color: var(--palette4) !important;
+            }
+        } 
+
+
+        input:disabled, input:disabled::placeholder{
+            color:  var(--palette2-variant);
+        }
+
+        input {
+            border-bottom: 2px solid var(--palette2);
+            color: var(--palette2);
+    
+            &::placeholder{
+                color: var(--palette2-variant);
+            }
+        }
+
+        button {
+            background-color:  var(--palette4);
+            border-radius: var(--radius);
+
+            &:hover {
+                background-color: var(--palette4-variant);
+            }
+        }
+    }
+}   
+
 .form {
     display: flex;
     justify-content: center;
@@ -28,7 +109,6 @@
     gap: 20px;
 
     & > label{
-        color: var(--palette1);
         background-color: transparent;
         display: flex;
         align-items: center;
@@ -42,19 +122,13 @@
 
     input:disabled, input:disabled::placeholder{
         cursor: not-allowed;
-        color:  var(--palette2-variant);
+        text-decoration: line-through;
     }  
 
     input {
         padding: 10px;
         font-size: 1.2rem;
-        border-bottom: 2px solid var(--palette1);
         background-color: transparent;
-        color: var(--palette1);
-
-        &::placeholder{
-            color: var(--palette1-variant);
-        }
     }
 }
 
@@ -72,6 +146,7 @@
     img{
         border-radius: 50%;
         object-fit: cover;
+        background-color: white;
     }
 
     span{
@@ -89,14 +164,9 @@
 
 .buttonProfile {
     color: var(--palette2);
-    background-color:  var(--palette3);
     border-radius: var(--radius);
     width: 100%;
     box-shadow: var(----shadow);
     padding: 10px;
     font-size: 1.2rem;
-
-    &:hover {
-        background-color: var(--palette3-variant);
-    }
 }

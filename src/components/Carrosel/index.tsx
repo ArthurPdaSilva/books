@@ -1,8 +1,10 @@
+import useTheme from "@/hooks/useTheme";
 import React, { useRef } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./styles.module.scss";
 
 export default function Carrosel() {
+  const { checked } = useTheme();
   const carroselRef = useRef<HTMLDivElement>(null);
 
   const handleLeftClick = () => {
@@ -31,10 +33,10 @@ export default function Carrosel() {
 
       <div className={styles.buttons}>
         <button onClick={handleLeftClick}>
-          <MdKeyboardArrowLeft size={68} color="#000" />
+          <MdKeyboardArrowLeft size={68} color={checked ? "#fff" : "#000"} />
         </button>
         <button onClick={handleRightClick}>
-          <MdKeyboardArrowRight size={68} color="#000" />
+          <MdKeyboardArrowRight size={68} color={checked ? "#fff" : "#000"} />
         </button>
       </div>
     </div>

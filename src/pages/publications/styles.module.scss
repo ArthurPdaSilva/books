@@ -2,10 +2,49 @@
     margin-left: 200px;
     padding: 10px 15px;
     height: 100vh;
-    background-color: var(--palette2);
 
     @media(max-width: 800px){
         margin-left: 0;
         padding: 0;
+    }
+}
+
+.containerLight {
+    & > div:nth-child(2) {
+        background-color: var(--palette2);
+
+        div {
+            a {
+                background-color: var(--palette3);
+
+                &:hover {
+                    background-color: var(--palette3-variant);
+                }
+            }
+            
+        }
+    }
+
+}
+
+.containerDark {
+    & > div:nth-child(2) {
+        background-color: var(--palette5);
+
+        div {
+            h1 {
+                color: var(--palette2);
+            }
+
+            a {
+                background-color: var(--palette4);
+                
+
+                &:hover {
+                    background-color: var(--palette4-variant);
+                }
+            }
+            
+        }
     }
 }

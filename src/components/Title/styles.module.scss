@@ -12,14 +12,9 @@
         padding: .5rem;
         font-size: 1.3rem;
         border-radius: var(--radius);
-        background-color: var(--palette3);
         color: var(--palette2);
         box-shadow: var(--shadow);
         transition: all ease-in .3s;
-
-        &:hover {
-            background-color: var(--palette3-variant);
-        }
     }
 
     @media(max-width: 800px) {

@@ -1,3 +1,11 @@
+.dark {
+    background-color:  var(--palette4);
+}
+
+.light {
+    background-color:  var(--palette1);
+}
+
 .sidebar {
     display: flex;
     position: fixed;
@@ -5,7 +13,6 @@
     width: 200px;
     height: 100%;
     padding: 10px;
-    background-color: var(--palette1);
 
     & > a {
         display: flex;
@@ -17,6 +24,10 @@
             &:hover {
                 color: var(--palette2-variant) !important;
             }
+        }
+
+        img {
+            background-color: white;
         }
     }
 

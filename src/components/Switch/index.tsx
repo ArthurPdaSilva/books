@@ -1,19 +1,23 @@
+import useTheme from "@/hooks/useTheme";
 import React from "react";
 import styles from "./styles.module.scss";
 
-interface SwitchProps {
-  isOn: boolean;
-  handleToggle: () => void;
-}
+export default function Switch() {
+  const { checked, setChecked } = useTheme();
 
-export default function Switch({ isOn, handleToggle }: SwitchProps) {
+  const handleCheck = () => {
+    localStorage.setItem("@theme", checked ? "light" : "dark");
+    setChecked(!checked);
+  };
+
   return (
     <>
       <input
         className={styles.switchInput}
         id="react-switch"
         type="checkbox"
-        onChange={handleToggle}
+        onChange={handleCheck}
+        checked={checked}
       />
 
       <label htmlFor="react-switch" className={styles.switchLabel}>

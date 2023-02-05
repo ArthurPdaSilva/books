@@ -2,6 +2,7 @@ import UserType from "@/@types/UserType";
 import Sidebar from "@/components/Sidebar";
 import Switch from "@/components/Switch";
 import useAuth from "@/hooks/useAuth";
+import useTheme from "@/hooks/useTheme";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -11,9 +12,9 @@ import styles from "./styles.module.scss";
 
 export default function Profile() {
   const { user, updateUser } = useAuth();
+  const { checked } = useTheme();
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
-  const [checked, setChecked] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState(user?.avatarUrl);
   const [imageAvatar, setImageAvatar] = useState<File | null>(null);
   const router = useRouter();
@@ -48,7 +49,7 @@ export default function Profile() {
       <Head>
         <title>Books - Editar perfil</title>
       </Head>
-      <div className={styles.container}>
+      <div className={checked ? styles.containerDark : styles.containerLight}>
         <Sidebar />
         <div className={styles.content}>
           <h1>Perfil</h1>
@@ -87,10 +88,7 @@ export default function Profile() {
 
             <label>
               Dark Mode:
-              <Switch
-                isOn={checked}
-                handleToggle={() => setChecked(!checked)}
-              />
+              <Switch />
             </label>
 
             <button type="submit" className={styles.buttonProfile}>

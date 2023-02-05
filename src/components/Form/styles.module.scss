@@ -81,41 +81,4 @@
     }
 }
 
-.checkContainer {
-    display: flex;
-    gap: 5px;
-    width: 50%;
-
-    input {
-        display: none;
-    }
-    
-    label:nth-child(2) {
-        width: 24px;
-        height: 24px;
-        display: block;
-        background-color: var(--palette4);
-        cursor: pointer;
-    }
-    
-    input:checked + label:nth-child(2)::after{
-        content: '';
-        display: inline-block;
-        transform: rotate(45deg);
-        height: 15px;
-        width: 5px;
-        margin-left: 30%;
-        border-bottom: 5px solid var(--palette3);
-        border-right: 5px solid var(--palette3);
-    }
-
-    label:nth-child(3){
-        color: var(--palette2);
-        cursor: pointer;
-    }
-
-    @media(max-width: 800px) { 
-        width: 100%;
-    }
-}
     

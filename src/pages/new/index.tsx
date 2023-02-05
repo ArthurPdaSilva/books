@@ -1,17 +1,19 @@
 import Sidebar from "@/components/Sidebar";
 import Title from "@/components/Title";
+import useTheme from "@/hooks/useTheme";
 import Head from "next/head";
-import { BsBookHalf, BsFillBookFill } from "react-icons/bs";
 import { MdOutlineFileUpload } from "react-icons/md";
 import styles from "./styles.module.scss";
 
 export default function Publications() {
+  const { checked } = useTheme();
+
   return (
     <>
       <Head>
         <title>Books - Criando publicação</title>
       </Head>
-      <div className={styles.container}>
+      <div className={checked ? styles.containerDark : styles.containerLight}>
         <Sidebar />
         <div className={styles.content}>
           <Title

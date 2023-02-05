@@ -11,13 +11,21 @@ import {
 } from "react-icons/md";
 import useAuth from "@/hooks/useAuth";
 import Image from "next/image";
+import useTheme from "@/hooks/useTheme";
 
 export default function Sidebar() {
-  const [displayMenu, setDisplayMenu] = useState(false);
   const { user, logout } = useAuth();
+  const { checked } = useTheme();
+  const [displayMenu, setDisplayMenu] = useState(false);
 
   return (
-    <div className={styles.sidebar}>
+    <div
+      className={
+        checked
+          ? `${styles.sidebar} ${styles.dark}`
+          : `${styles.sidebar} ${styles.light}`
+      }
+    >
       <Link href="/profile">
         {user?.avatarUrl === " " ? (
           <MdAccountCircle size={192} color="#fff" />

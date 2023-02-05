@@ -7,7 +7,7 @@ import UpdateImagem from "@/services/user/UpdateImage";
 import UpdateName from "@/services/user/UpdateName";
 import React, { createContext, useState, useCallback, useEffect } from "react";
 
-interface AppContextInterface {
+interface AuthContextInterface {
   signed: boolean;
   user: UserType | null;
   signUp: ({ name, email, password }: RegisterProps) => void;
@@ -32,8 +32,8 @@ interface LoginProps {
   password: string;
 }
 
-export const AuthContext = createContext<AppContextInterface>(
-  {} as AppContextInterface
+export const AuthContext = createContext<AuthContextInterface>(
+  {} as AuthContextInterface
 );
 
 export default function AuthProvider({ children }: { children: JSX.Element }) {
@@ -114,6 +114,7 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
     Logout();
     setUser(null);
     localStorage.removeItem("@auth.user");
+    localStorage.removeItem("@theme");
     alert("Saindo da plataforma...");
   }, [setUser]);
 

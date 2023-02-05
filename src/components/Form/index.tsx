@@ -65,14 +65,6 @@ export default function Form({ typeForm, buttonText, children }: FormProps) {
           required
         />
 
-        {typeForm === "Login" && (
-          <div className={styles.checkContainer}>
-            <input type="checkbox" id="check" />
-            <label htmlFor="check"></label>
-            <label htmlFor="check">Lembrar de mim</label>
-          </div>
-        )}
-
         <button type="submit">{buttonText}</button>
       </form>
 

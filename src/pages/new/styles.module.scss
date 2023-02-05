@@ -10,6 +10,45 @@
     }
 }
 
+.containerLight {
+    & > div:nth-child(2) {
+        background-color: var(--palette2);
+
+    }
+
+}
+
+.containerDark {
+    & > div:nth-child(2) {
+        background-color: var(--palette5);
+        div {
+            h1 {
+                color: var(--palette2);
+            }
+
+            a {
+                background-color:  var(--palette4); 
+
+                &:hover {
+                    background-color: var(--palette4-variant);
+                }
+            }
+        }
+
+        form {
+            background-color:  var(--palette4);
+
+            button {
+                background-color: var(--palette5);
+
+                &:hover {
+                    background-color: var(--palette5-variant);
+                }
+            }
+        }
+    }
+}
+
 .forms {
     display: flex;
     flex-direction: column;
