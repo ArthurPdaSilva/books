@@ -7,10 +7,7 @@ import styles from "./styles.module.scss";
 export default function Post() {
   return (
     <div className={styles.public}>
-      <div className={styles.headerContent}>
-        <MdAccountCircle size={40} />
-        Nome do usuário
-      </div>
+      <h2 className={styles.headerContent}>As crônicas do vazio</h2>
       <div className={styles.image}>
         <a href="/images/myw3schoolsimage.jpg" download>
           <Image
@@ -20,6 +17,10 @@ export default function Post() {
             height={400}
           />
         </a>
+        <div className={styles.user}>
+          <MdAccountCircle size={40} />
+          Nome
+        </div>
         <div className={styles.footer}>
           <AiOutlineHeart size={30} color="red" />
           <div className={styles.comment}>
