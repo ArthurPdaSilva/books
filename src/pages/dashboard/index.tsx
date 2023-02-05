@@ -1,3 +1,4 @@
+import Post from "@/components/Post";
 import Sidebar from "@/components/Sidebar";
 import Head from "next/head";
 import styles from "./styles.module.scss";
@@ -10,7 +11,11 @@ export default function Dashboard() {
       </Head>
       <div className={styles.container}>
         <Sidebar />
-        <div className={styles.content}></div>
+        <div className={styles.content}>
+          <Post />
+          <Post />
+          <Post />
+        </div>
       </div>
     </>
   );

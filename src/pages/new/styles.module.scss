@@ -70,8 +70,18 @@
     color: var(--palette2);
     cursor: pointer;
 
+    &:hover > svg {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+
     input[type='file'] {
         display: none;
+    }
+
+    svg {
+        opacity: .7;
+        transition: all .5s;
     }
 
 }

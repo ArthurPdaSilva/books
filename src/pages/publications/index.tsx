@@ -8,7 +8,7 @@ export default function Publications() {
   return (
     <>
       <Head>
-        <title>Books - Bem vindo a plataforma</title>
+        <title>Books - Minhas publicações</title>
       </Head>
       <div className={styles.container}>
         <Sidebar />
