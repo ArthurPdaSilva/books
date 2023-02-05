@@ -13,3 +13,16 @@
         background-color: var(--palette2-variant);
     }
 }
+
+.containerLight {
+    & > div:nth-child(2) {
+        background-color: var(--palette2);
+    }
+
+}
+
+.containerDark {
+    & > div:nth-child(2) {
+        background-color: var(--palette5);
+    }
+}

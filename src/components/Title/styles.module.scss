@@ -26,19 +26,35 @@
     }
 }
 
+.darkTitle {
+    color: var(--palette2);
+}
+
+.darkButton {
+    background-color: var(--palette4);
+
+    &:hover {
+        background-color: var(--palette4-variant);
+    }
+}
+
+.whiteButton {
+    background-color: var(--palette5);
+
+    &:hover {
+        background-color: var(--palette5-variant);
+    }
+}
+
+.whiteTitle {
+    color: #000 !important;
+}
+
 
 .back {
     width: 100%;
     flex-direction: row-reverse;
     justify-content: flex-end;
-
-    a {
-        background-color: var(--palette5);
-
-        &:hover {
-            background-color: var(--palette5-variant);
-        }
-    }
 
     @media(max-width: 800px) {
         flex-direction: column;
