@@ -12,17 +12,6 @@
 .containerLight {
     & > div:nth-child(2) {
         background-color: var(--palette2);
-
-        div {
-            a {
-                background-color: var(--palette3);
-
-                &:hover {
-                    background-color: var(--palette3-variant);
-                }
-            }
-            
-        }
     }
 
 }
@@ -31,20 +20,5 @@
     & > div:nth-child(2) {
         background-color: var(--palette5);
 
-        div {
-            h1 {
-                color: var(--palette2);
-            }
-
-            a {
-                background-color: var(--palette4);
-                
-
-                &:hover {
-                    background-color: var(--palette4-variant);
-                }
-            }
-            
-        }
     }
 }

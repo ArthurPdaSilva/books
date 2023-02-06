@@ -26,3 +26,22 @@
         background-color: var(--palette5);
     }
 }
+
+.pub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    a {
+        position: fixed;
+        right: 30px;
+        top: 20px;
+        
+        svg {
+            background-color: var(--palette1);
+
+            border-radius: var(--radius);
+        }
+    }
+}

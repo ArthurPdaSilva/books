@@ -1,7 +1,9 @@
 .content {
-    margin-left: 200px;
     padding: 10px 15px;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--palette2);
 
     @media(max-width: 800px){

@@ -1,7 +1,7 @@
 import Sidebar from "@/components/Sidebar";
-import Title from "@/components/Title";
 import useTheme from "@/hooks/useTheme";
 import Head from "next/head";
+import Link from "next/link";
 import { MdOutlineFileUpload } from "react-icons/md";
 import styles from "./styles.module.scss";
 
@@ -16,11 +16,6 @@ export default function Publications() {
       <div className={checked ? styles.containerDark : styles.containerLight}>
         <Sidebar />
         <div className={styles.content}>
-          <Title
-            header="Criando publicação"
-            link="/publications"
-            linkText="Voltar"
-          />
           <form className={styles.forms}>
             <h2>Cadastrar Material</h2>
             <input type="text" placeholder="Nome do Material" />

@@ -19,6 +19,8 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 2rem;
+
+
         svg {
             transition: all .3s ease-in;
             &:hover {
@@ -28,6 +30,8 @@
 
         img {
             background-color: white;
+            filter: drop-shadow(2px 3px 6px #121212);
+            border: 1px solid var(--palette5);
         }
     }
 
