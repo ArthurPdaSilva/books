@@ -1,24 +1,33 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .content {
-    margin-left: 200px;
-    padding: 10px 15px;
+    @include space(0 0 0 200px, 10px 15px, 0);
     height: 100vh;
 
     @media(max-width: 800px){
-        margin-left: 0;
-        padding: 0;
+        @include space(0, 0, 0);
     }
 }
 
 .containerLight {
     & > div:nth-child(2) {
-        background-color: var(--palette2);
+        background-color: $palette2;
+
+        h1 {
+            color: black;
+        }
     }
 
 }
 
 .containerDark {
     & > div:nth-child(2) {
-        background-color: var(--palette5);
+        background-color: $palette5;
+
+        h1 {
+            color: $palette2;
+        }
 
     }
 }

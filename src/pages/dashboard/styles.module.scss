@@ -1,8 +1,8 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex(column, center, center);
     padding: 10px;
     min-height: 100vh;
     margin-left: 200px;
@@ -10,27 +10,35 @@
     @media(max-width: 800px){
         margin-left: 0;
         padding: 0;
-        background-color: var(--palette2-variant);
+        background-color: $palette2-variant;
     }
 }
 
 .containerLight {
     & > div:nth-child(2) {
-        background-color: var(--palette2);
+        background-color: $palette2;
     }
 
 }
 
 .containerDark {
     & > div:nth-child(2) {
-        background-color: var(--palette5);
+        background-color: $palette5;
+
+        h1 {
+            color: $palette2;
+        }
+
+        a {
+            svg {
+                background-color: $palette4;
+            }
+        }
     }
 }
 
 .pub {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex(row, center, space-between);
     width: 100%;
 
     a {
@@ -39,9 +47,8 @@
         top: 20px;
         
         svg {
-            background-color: var(--palette1);
-
-            border-radius: var(--radius);
+            background-color: $palette1;
+            border-radius: $radius;
         }
     }
 }

@@ -1,23 +1,20 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--palette1);
+    @include flex(column, center, center);
+    background-color: $palette1;
     height: 100vh;
 }
 
 
 .containerError{ 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: var(--palette2);
+    @include flex(column, center, space-around);
+    background-color: $palette2;
+    border-radius: $radius;
+    box-shadow: $shadow;
     padding: 1rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-
+    
     svg {
         animation: animate 1s infinite;
     }

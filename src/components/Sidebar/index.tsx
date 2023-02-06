@@ -52,20 +52,20 @@ export default function Sidebar() {
       >
         <Link className={styles.groupLink} href="/dashboard">
           <MdHome size={42} />
-          Tela Inicial
+          <span>Tela Inicial</span>
         </Link>
         <Link className={styles.groupLink} href="/publications">
           <MdAssignment size={42} />
-          Publicações
+          <span>Publicações</span>
         </Link>
         <Link className={styles.groupLink} href="/profile">
           <MdSettings size={42} />
-          Perfil
+          <span>Perfil</span>
         </Link>
-        <button className={styles.groupLink} onClick={logout}>
+        <Link href="/" className={styles.groupLink} onClick={logout}>
           <MdExitToApp size={42} />
-          Sair
-        </button>
+          <span>Sair</span>
+        </Link>
       </ul>
     </div>
   );

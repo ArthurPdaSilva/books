@@ -36,8 +36,10 @@ export default function Publications() {
               <MdOutlineFileUpload color="#fff" size={30} />
               <input type="file" accept=".pdf" placeholder="Enviar arquivo" />
             </label>
-
-            <button>Cadastrar</button>
+            <div className={styles.buttons}>
+              <Link href="/dashboard">Voltar</Link>
+              <button>Cadastrar</button>
+            </div>
           </form>
         </div>
       </div>

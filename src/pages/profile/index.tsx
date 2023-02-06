@@ -1,4 +1,3 @@
-import UserType from "@/@types/UserType";
 import Sidebar from "@/components/Sidebar";
 import Switch from "@/components/Switch";
 import useAuth from "@/hooks/useAuth";

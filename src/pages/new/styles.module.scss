@@ -1,10 +1,11 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .content {
+    @include flex(row, center, center);
     padding: 10px 15px;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--palette2);
+    background-color: $palette2;
 
     @media(max-width: 800px){
         margin-left: 0;
@@ -14,23 +15,22 @@
 
 .containerLight {
     & > div:nth-child(2) {
-        background-color: var(--palette2);
+        background-color: $palette2;
     }
 
 }
 
 .containerDark {
     & > div:nth-child(2) {
-        background-color: var(--palette5);
+        background-color: $palette5;
 
         form {
-            background-color:  var(--palette4);
-
+            background-color:  $palette4;
+            
             button {
-                background-color: var(--palette5);
-
+                background-color: $palette5;
                 &:hover {
-                    background-color: var(--palette5-variant);
+                    background-color: $palette5-variant;
                 }
             }
         }
@@ -44,9 +44,9 @@
     justify-content: center;
     width: 60%;
     padding: 15px;
-    border-radius: var(--radius);
+    border-radius: $radius;
     margin-top: 3rem;
-    background-color: var(--palette1);
+    background-color: $palette1;
     gap: 10px;
 
     h2 {
@@ -55,28 +55,17 @@
         color: #fff;
     }
 
-    input, select, button {
+    input, select {
         width: 80%;
         font-size: 1.4rem;
         padding: 10px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-    }
+        box-shadow: $shadow;
+        border-radius: $radius;    }
 
 
     input {
         &::placeholder {
-            color: var(--palette2-variant);
-        }
-    }
-
-    button {
-        background-color: var(--palette4);
-        color: var(--palette2);
-        transition: background-color ease-in .3s;
-
-        &:hover {
-            background-color: var(--palette4-variant);
+            color: $palette2-variant;
         }
     }
 
@@ -94,7 +83,7 @@
     justify-content: space-between;
     width: 80%;
     font-size: 1.4rem;
-    color: var(--palette2);
+    color: $palette2;
     cursor: pointer;
 
     &:hover > svg {
@@ -111,4 +100,45 @@
         transition: all .5s;
     }
 
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a, button {
+        font-size: 1.4rem;
+        width: 30%;
+        height: 8vh;
+        padding: 10px;
+        box-shadow: $shadow;
+        border-radius: $radius;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $palette2;
+        border: 1px solid $palette2;
+        transition: background-color ease-in .3s;
+
+        &:hover {
+            color: $palette2-variant;
+            border-color: $palette2-variant;
+        }
+    }
+
+    button {
+        background-color: $palette4;
+        color: $palette2;
+        transition: background-color ease-in .3s;
+
+        &:hover {
+            background-color: $palette4-variant;
+        }
+    }
 }

@@ -1,9 +1,9 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--palette1);
+    @include flex(column, center, center);
+    background-color: $palette1;
     height: 100vh;
 
     h1 {
@@ -11,21 +11,21 @@
     }
 
     h1, a {
-        color: var(--palette2);
+        color: $palette2;
     }
 
     a {
         text-align: center;
 
         span {
-            color: var(--palette4);
+            color: $palette4;
         }
 
         &:hover {
-            color: var(--palette2-variant);
+            color: $palette2-variant;
 
             span {
-                color: var(--palette5-variant);
+                color: $palette5-variant;
             }
         }
     }
@@ -36,9 +36,7 @@
 
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex(column, center, none);
     margin-top: 40px;
     padding: 1rem;
     gap: 1rem;
@@ -48,13 +46,13 @@
         padding: 1rem;
         width: 40vw;
         font-size: 1.4rem;
-        background-color: var(--palette3);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        color: var(--palette2);
+        background-color: $palette3;
+        border-radius: $radius;
+        box-shadow: $shadow;        
+        color: $palette2;
 
         &::placeholder {
-            color: var(--palette2-variant)
+            color: $palette2-variant;
         }
     }
 
@@ -62,14 +60,14 @@
         width: 40vw;
         padding: 1rem;
         font-size: 1.4rem;
-        border-radius: var(--radius);
-        background-color: var(--palette4);
-        color: var(--palette2);
-        box-shadow: var(--shadow);
+        border-radius: $radius;
+        background-color: $palette4;
+        color: $palette2;
+        box-shadow: $shadow;
         transition: background-color ease-in .3s;
 
         &:hover {
-            background-color: var(--palette4-variant);
+            background-color: $palette4-variant;
         }
     }
 

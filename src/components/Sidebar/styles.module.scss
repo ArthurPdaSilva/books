@@ -1,37 +1,35 @@
+@import "../../styles/variables";
+@import "../../styles/functions";
+
 .dark {
-    background-color:  var(--palette4);
+    background-color:  $palette4;
 }
 
 .light {
-    background-color:  var(--palette1);
+    background-color:  $palette1;
 }
 
 .sidebar {
-    display: flex;
+    @include flex(column, center, space-around);
     position: fixed;
-    flex-direction: column;
     width: 200px;
     height: 100%;
     padding: 10px;
 
     & > a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-
+        @include flex(row, center, center);
 
         svg {
             transition: all .3s ease-in;
             &:hover {
-                color: var(--palette2-variant) !important;
+                color: $palette2-variant !important;
             }
         }
 
         img {
             background-color: white;
             filter: drop-shadow(2px 3px 6px #121212);
-            border: 1px solid var(--palette5);
+            border: 1px solid $palette5;
         }
     }
 
@@ -62,20 +60,17 @@
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include flex(column, center, space-between);
 
     @media(max-width: 800px) {
-        align-items: center;
         position: absolute;
         overflow: hidden;
         z-index: 99;
         top: 45px;
-        transform: translateX(0%);
+        transform: translateX(3.5%);
         transition: all .4s ease-in;
         align-items: center;
-        background-color:  var(--palette1);
+        background-color:  $palette1;
         width: 100%;    
     }
 }
@@ -83,13 +78,12 @@
 
 .menuChecked {
     @media(max-width: 800px) {
-        transform: translateX(150%);
+        transform: translateX(120%);
     }    
 }
 
 .groupLink {
-    display: flex;
-    align-items: center;
+    @include flex(row, center, none);
     cursor: pointer;
     width: 100%;
     padding: 10px;
@@ -99,12 +93,15 @@
     color: white !important; 
     background-color: transparent;
 
+    span {
+        flex: 1;
+    }
+
     &:hover {
-        color: var(--palette2-variant) !important;
+        color: $palette2-variant !important;
     }
 
     @media(max-width: 800px) {
         justify-content: center;
     }
-    
 }

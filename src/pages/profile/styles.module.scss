@@ -1,11 +1,10 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(column, center, center);
+    @include space(0 0 0 200px, 5px 15px, 0);
     height: 100vh;
-    margin-left: 200px;
-    padding: 5px 15px;
 
     h1{
         font-weight: normal;
@@ -13,46 +12,45 @@
     }
 
     @media(max-width: 800px){
-        margin-left: 0;
-        padding: 0;
+        @include space(0, 0, 0);
     }
 }
 
 .containerLight {
-    background-color: var(--palette2);
+    background-color: $palette2;
 
     h1 {
-        color:var(--palette1);
+        color:$palette1;
     }
 
     form {
         
         label {
-            color: var(--palette1);
+            color: $palette1;
 
             & > label {
-                background-color: var(--palette3) !important;
+                background-color: $palette3 !important;
             }
         } 
 
         input:disabled, input:disabled::placeholder{
-            color:  var(--palette4-variant);
+            color:  $palette1-variant;
         }
 
         input {
-            border-bottom: 2px solid var(--palette1);
-            color: var(--palette1);
+            border-bottom: 2px solid $palette1;
+            color: $palette1;
     
             &::placeholder{
-                color: var(--palette1-variant);
+                color: $palette1-variant;
             }
         }
 
         button {
-            background-color:  var(--palette3);
+            background-color:  $palette3;
 
             &:hover {
-                background-color: var(--palette3-variant);
+                background-color: $palette3-variant;
             }
         }
     }
@@ -60,58 +58,54 @@
 }
 
 .containerDark {
-    background-color: var(--palette5);
+    background-color: $palette5;
 
     h1 {
-        color:var(--palette2);
+        color:$palette2;
     }
 
     form {
 
         label {
-            color: var(--palette2);
+            color: $palette2;
 
             & > label {
-                background-color: var(--palette4) !important;
+                background-color: $palette4 !important;
             }
         } 
 
 
         input:disabled, input:disabled::placeholder{
-            color:  var(--palette2-variant);
+            color:  $palette2-variant;
         }
 
         input {
-            border-bottom: 2px solid var(--palette2);
-            color: var(--palette2);
+            border-bottom: 2px solid $palette2;
+            color: $palette2;
     
             &::placeholder{
-                color: var(--palette2-variant);
+                color: $palette2-variant;
             }
         }
 
         button {
-            background-color:  var(--palette4);
-            border-radius: var(--radius);
+            background-color:  $palette4;
+            border-radius: $radius;
 
             &:hover {
-                background-color: var(--palette4-variant);
+                background-color: $palette4-variant;
             }
         }
     }
 }   
 
 .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex(column, center, center);
     gap: 20px;
 
     & > label{
+        @include flex(row, center, center);
         background-color: transparent;
-        display: flex;
-        align-items: center;
         gap: 20px;
     }
 
@@ -123,7 +117,7 @@
     img {
         background-color: white;
         filter: drop-shadow(2px 3px 6px #121212);
-        border: 1px solid var(--palette5);
+        border: 1px solid $palette5;
     }
 
     input:disabled, input:disabled::placeholder{
@@ -139,10 +133,7 @@
 }
 
 .labelAvatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    @include flex(column, center, center);
     cursor: pointer;
 
     input{
@@ -169,10 +160,11 @@
 }
 
 .buttonProfile {
-    color: var(--palette2);
-    border-radius: var(--radius);
+    color: $palette2;
+    border-radius: $radius;
     width: 100%;
-    box-shadow: var(----shadow);
+    box-shadow: $shadow;
     padding: 10px;
-    font-size: 1.2rem;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
