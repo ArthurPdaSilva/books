@@ -1,11 +1,28 @@
+import PublicationType from "@/@types/PublicationType";
+import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
-import React, { useRef } from "react";
+import GetMyPosts from "@/services/post/GetMyPosts";
+import GetPosts from "@/services/post/GetPosts";
+import React, { useRef, useState, useEffect } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./styles.module.scss";
 
 export default function Carrosel() {
   const { checked } = useTheme();
   const carroselRef = useRef<HTMLDivElement>(null);
+  const { user } = useAuth();
+  const [myPosts, setMyPosts] = useState<PublicationType[]>([]);
+
+  useEffect(() => {
+    async function loadingMyPosts() {
+      const posts = await GetMyPosts().then((data) => {
+        return data.list;
+      });
+      const myPosts = posts.filter((item) => item.authorId === user?.uid);
+      setMyPosts(myPosts);
+    }
+    loadingMyPosts();
+  }, [user?.uid]);
 
   const handleLeftClick = () => {
     if (carroselRef.current) {
@@ -21,24 +38,32 @@ export default function Carrosel() {
 
   return (
     <div className={styles.carrosel} ref={carroselRef}>
-      <div className={styles.rectangle}>1</div>
-      <div className={styles.rectangle}>2</div>
-      <div className={styles.rectangle}>3</div>
-      <div className={styles.rectangle}>4</div>
-      <div className={styles.rectangle}>5</div>
-      <div className={styles.rectangle}>6</div>
-      <div className={styles.rectangle}>7</div>
-      <div className={styles.rectangle}>8</div>
-      <div className={styles.rectangle}>9</div>
-
-      <div className={styles.buttons}>
-        <button onClick={handleLeftClick}>
-          <MdKeyboardArrowLeft size={68} color={checked ? "#fff" : "#000"} />
-        </button>
-        <button onClick={handleRightClick}>
-          <MdKeyboardArrowRight size={68} color={checked ? "#fff" : "#000"} />
-        </button>
-      </div>
+      {myPosts?.length === 0 ? (
+        <h1>Ainda não tem publicou nada</h1>
+      ) : (
+        <>
+          {myPosts.map((value) => (
+            <div
+              className={styles.rectangle}
+              key={value.uid}
+              style={{
+                backgroundImage: `url(${value.bannerUrl})`,
+                backgroundSize: "cover",
+              }}
+            >
+              <span>{value.name}</span>
+            </div>
+          ))}
+          <div className={styles.buttons}>
+            <button onClick={handleLeftClick}>
+              <MdKeyboardArrowLeft size={68} color="#fff" />
+            </button>
+            <button onClick={handleRightClick}>
+              <MdKeyboardArrowRight size={68} color="#fff" />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

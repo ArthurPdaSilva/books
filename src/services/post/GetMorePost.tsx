@@ -1,4 +1,3 @@
-import PublicationType from "@/@types/PublicationType";
 import { db } from "@/firebase";
 import {
   collection,

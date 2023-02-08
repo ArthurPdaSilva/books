@@ -17,16 +17,21 @@
 }
 
 .rectangle {
-    flex: none;
     @include size(300px, 250px);
     @include space(10px, 10px, 0);
-    background-color: #c4c4c4;
+    @include border-shadow(10px, 10px);
+    flex: none;
+
+    span {
+        color: white;
+    }
+
 }
 
 .buttons {
     @include flex(row, center, space-between);
     position: absolute;
-    width: 85%;
+    width: 83%;
 
     button{
         background-color: transparent;

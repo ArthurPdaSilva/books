@@ -126,5 +126,19 @@
         &:hover {
             background-color: $palette4-variant;
         }
+
+        svg {
+            animation: animate 1s infinite;
+        }
+    }
+}
+
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

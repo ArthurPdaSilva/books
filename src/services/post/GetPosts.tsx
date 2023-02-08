@@ -1,4 +1,3 @@
-import PublicationType from "@/@types/PublicationType";
 import { db } from "@/firebase";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import UpdateState from "./UpdateStates";

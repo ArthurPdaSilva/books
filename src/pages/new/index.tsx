@@ -8,6 +8,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
 import { FormEvent, useState, useCallback } from "react";
+import { AiOutlineReload } from "react-icons/ai";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { v4 } from "uuid";
 import styles from "./styles.module.scss";
@@ -19,6 +20,7 @@ export default function Publications() {
   const [materialType, setMaterialType] = useState("");
   const [banner, setBanner] = useState<File | null>(null);
   const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleAdd = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
@@ -27,12 +29,12 @@ export default function Publications() {
         alert(
           "Adicione um nome para a obra que tenha, pelo menos, 5 caracteres!"
         );
-      }
-      if (materialType === "none" || !materialType) {
+      } else if (materialType === "none" || !materialType) {
         alert("Selecione o tipo de material");
       } else if (!file || !banner) {
         alert("Adicione um banner/arquivo!");
       } else {
+        setLoading(true);
         const newPost: PublicationType = {
           authorId: user?.uid as string,
           uid: v4(),
@@ -48,10 +50,12 @@ export default function Publications() {
           .then(async () => {
             await UpdateFiles(newPost.uid, banner, file);
             alert("Criada com sucesso");
+            setLoading(false);
             Router.push("/dashboard");
           })
           .catch((err) => {
             alert("Falha");
+            setLoading(false);
             console.log(err);
           });
       }
@@ -123,7 +127,9 @@ text/plain, application/pdf,"
             </label>
             <div className={styles.buttons}>
               <Link href="/dashboard">Voltar</Link>
-              <button type="submit">Cadastrar</button>
+              <button type="submit">
+                {loading ? <AiOutlineReload size={30} /> : "Cadastrar"}
+              </button>
             </div>
           </form>
         </div>
