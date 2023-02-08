@@ -10,9 +10,8 @@
 
 .containerError{ 
     @include flex(column, center, space-around);
+    @include border-shadow($radius, $shadow);
     background-color: $palette2;
-    border-radius: $radius;
-    box-shadow: $shadow;
     padding: 1rem;
     
     svg {

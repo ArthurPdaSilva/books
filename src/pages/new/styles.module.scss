@@ -50,11 +50,11 @@
     }
 
     input, select {
+        @include border-shadow($radius, $shadow);
         width: 80%;
         font-size: 1.4rem;
         padding: 10px;
-        box-shadow: $shadow;
-        border-radius: $radius;    }
+    }
 
 
     input {
@@ -101,10 +101,9 @@
 
     a, button {
         @include size(8vh, 30%);
+        @include border-shadow($radius, $shadow);
         font-size: 1.4rem;
         padding: 10px;
-        box-shadow: $shadow;
-        border-radius: $radius;
     }
 
     a {

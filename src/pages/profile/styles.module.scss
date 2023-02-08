@@ -160,10 +160,9 @@
 }
 
 .buttonProfile {
+    @include border-shadow($radius, $shadow);
     color: $palette2;
-    border-radius: $radius;
     width: 100%;
-    box-shadow: $shadow;
     padding: 10px;
     font-weight: bold;
     font-size: 1.3rem;

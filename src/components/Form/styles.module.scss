@@ -41,12 +41,11 @@
     width: 80vw;
 
     input {
+        @include border-shadow($radius, $shadow);
         padding: 1rem;
         width: 40vw;
         font-size: 1.4rem;
         background-color: $palette3;
-        border-radius: $radius;
-        box-shadow: $shadow;        
         color: $palette2;
 
         &::placeholder {
@@ -55,13 +54,12 @@
     }
 
     button {
+        @include border-shadow($radius, $shadow);
         width: 40vw;
         padding: 1rem;
         font-size: 1.4rem;
-        border-radius: $radius;
         background-color: $palette4;
         color: $palette2;
-        box-shadow: $shadow;
         transition: background-color ease-in .3s;
 
         &:hover {

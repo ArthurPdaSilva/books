@@ -41,8 +41,13 @@
 
     a {
         position: fixed;
+        transition: all ease-in .3s;
         right: 30px;
         top: 20px;
+
+        &:hover {
+            transform: scale(1.3);
+        }
         
         svg {
             background-color: $palette1;

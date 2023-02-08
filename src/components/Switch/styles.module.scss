@@ -4,13 +4,12 @@
 .switchButton {
   content: "";
   @include size(20px, 20px);
+  @include border-shadow(20px, 0 0 2px 0 rgba(10, 10, 10, 0.29));
   position: absolute;
   top: 2px;
   left: 2px;
-  border-radius: 20px;
   transition: 0.2s;
   background-color: $palette2;
-  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
 

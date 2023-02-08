@@ -15,3 +15,8 @@
     height: $height;
     width: $width;
 }
+
+@mixin border-shadow($radius, $box-shadow) {
+    border-radius: $radius;
+    box-shadow: $box-shadow;
+}
