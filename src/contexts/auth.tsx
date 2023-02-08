@@ -1,4 +1,6 @@
 import UserType from "@/@types/UserType";
+import GetMyPosts from "@/services/post/GetMyPosts";
+import UpdatePost from "@/services/post/UpdatePost";
 import Login from "@/services/user/Login";
 import Logout from "@/services/user/Logout";
 import PhotoStorage from "@/services/user/PhotoStorage";
@@ -48,7 +50,22 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
   const saveChangeUser = useCallback((newUser: UserType) => {
     setUser(newUser);
     storageUser(newUser);
+    updatePosts(newUser);
   }, []);
+
+  const updatePosts = async (newUser: UserType) => {
+    const posts = await GetMyPosts().then((data) => {
+      return data.list;
+    });
+
+    posts.forEach((item) => {
+      if (item.authorId === newUser.uid) {
+        item.authorName = newUser.name;
+        item.photoUser = newUser.avatarUrl as string;
+        UpdatePost(item);
+      }
+    });
+  };
 
   const signUp = useCallback(
     ({ name, email, password }: RegisterProps) => {

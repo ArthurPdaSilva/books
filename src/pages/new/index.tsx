@@ -51,7 +51,7 @@ export default function Publications() {
           uid: v4(),
           authorName: user?.name as string,
           created: new Date(),
-          likes: 0,
+          photoUser: user?.avatarUrl as string,
           name,
           type: materialType,
           bannerUrl: " ",
@@ -72,7 +72,7 @@ export default function Publications() {
           });
       }
     },
-    [banner, file, materialType, name, user?.name, user?.uid]
+    [banner, file, materialType, name, user?.avatarUrl, user?.name, user?.uid]
   );
 
   const handleFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

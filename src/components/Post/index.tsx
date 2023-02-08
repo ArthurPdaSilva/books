@@ -1,7 +1,8 @@
 import PublicationType from "@/@types/PublicationType";
 import useTheme from "@/hooks/useTheme";
-import React, { useState } from "react";
-import { AiFillHeart, AiOutlineHeart, AiOutlineSend } from "react-icons/ai";
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { AiOutlineSend } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
 import styles from "./styles.module.scss";
 
@@ -10,17 +11,26 @@ export default function Post({
   bannerUrl,
   fileUrl,
   name,
-  likes,
+  photoUser,
 }: PublicationType) {
   const { checked } = useTheme();
-  const [clicked, setClicked] = useState(false);
 
   return (
     <div className={styles.post}>
       <div
         className={checked ? `${styles.user} ${styles.darkPost}` : styles.user}
       >
-        <MdAccountCircle size={40} title={authorName} />
+        {photoUser.length <= 1 ? (
+          <MdAccountCircle size={40} title={authorName} />
+        ) : (
+          <Image
+            width={32}
+            height={32}
+            src={photoUser}
+            title={authorName}
+            alt="Foto do usuário"
+          />
+        )}
         <span>{name}</span>
       </div>
       <a
@@ -38,22 +48,8 @@ export default function Post({
           checked ? `${styles.footer} ${styles.darkPost}` : styles.footer
         }
       >
-        {clicked ? (
-          <AiFillHeart
-            size={30}
-            color="red"
-            onClick={() => setClicked(!clicked)}
-          />
-        ) : (
-          <AiOutlineHeart
-            size={30}
-            color="red"
-            onClick={() => setClicked(!clicked)}
-          />
-        )}
-        <span>{likes}</span>
         <div className={styles.comment}>
-          <textarea placeholder="Adicionar comentário" />
+          <textarea placeholder="Enviar um comentário" />
           <AiOutlineSend size={30} />
         </div>
       </div>

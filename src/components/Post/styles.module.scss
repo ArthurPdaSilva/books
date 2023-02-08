@@ -9,6 +9,10 @@
     width: 100%;
     background-color: $palette2;
 
+    img {
+        border-radius: 50%;
+    }
+
     span {
         font-size: 1.5rem;
     }
@@ -58,7 +62,6 @@
         }
     }
 
-    span { color: red}
 }
 
 .comment {

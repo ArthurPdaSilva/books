@@ -15,9 +15,7 @@ export default async function Login(
         uid: uid,
         name: userProfile.data()?.name || "",
         email: userProfile.data()?.email || "",
-        avatarUrl: userProfile.data()?.avatarUrl || "",
-        publications: userProfile.data()?.publications,
-        likePosts: userProfile.data()?.likePosts,
+        avatarUrl: userProfile.data()?.avatarUrl || " ",
       };
     })
     .catch((e) => {

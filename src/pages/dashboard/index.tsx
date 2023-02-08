@@ -74,8 +74,8 @@ export default function Dashboard() {
                 type={value.type}
                 bannerUrl={value.bannerUrl}
                 fileUrl={value.fileUrl}
-                likes={value.likes}
                 created={value.created}
+                photoUser={value.photoUser}
               />
             ))}
           </div>

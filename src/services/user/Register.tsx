@@ -16,16 +16,12 @@ export default async function Register(
         name,
         avatarUrl: " ",
         email,
-        publications: [],
-        likePosts: [],
       });
       return {
         uid: uid,
         name,
         avatarUrl: " ",
         email,
-        publications: [],
-        likePosts: [],
       };
     })
     .catch((e) => {

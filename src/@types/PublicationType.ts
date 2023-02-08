@@ -4,8 +4,8 @@ export default interface PublicationType {
     type: string;
     bannerUrl: string;
     fileUrl: string;
+    photoUser: string
     authorName: string;
     authorId: string;
-    likes: number;
     created: Date;
 }
