@@ -6,6 +6,7 @@ import Register from "@/services/user/Register";
 import UpdateImagem from "@/services/user/UpdateImage";
 import UpdateName from "@/services/user/UpdateName";
 import React, { createContext, useState, useCallback, useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface AuthContextInterface {
   signed: boolean;
@@ -54,10 +55,11 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
       Register(email, password, name)
         .then((data) => {
           saveChangeUser(data as UserType);
-          alert("Bem vindo a plataforma!");
+          toast.success("Bem vindo a plataforma!");
         })
-        .catch(() => {
-          alert("Conta já criada!");
+        .catch((err) => {
+          toast.error("Conta já criada!");
+          console.log(err);
         });
     },
     [saveChangeUser]
@@ -68,10 +70,11 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
       Login(email, password)
         .then((data) => {
           saveChangeUser(data as UserType);
-          alert(`Bem vindo de volta, ${data?.name}!`);
+          toast.success(`Bem vindo de volta, ${data?.name}!`);
         })
-        .catch(() => {
-          alert("Email ou senha inconrretos!");
+        .catch((err) => {
+          toast.error("Email ou senha inconrretos!");
+          console.log(err);
         });
     },
     [saveChangeUser]
@@ -115,7 +118,7 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
     setUser(null);
     localStorage.removeItem("@auth.user");
     localStorage.removeItem("@theme");
-    alert("Saindo da plataforma...");
+    toast.info("Saindo da plataforma...");
   }, [setUser]);
 
   return (

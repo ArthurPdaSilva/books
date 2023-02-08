@@ -10,6 +10,7 @@ import Router from "next/router";
 import { FormEvent, useState, useCallback } from "react";
 import { AiOutlineReload } from "react-icons/ai";
 import { MdOutlineFileUpload } from "react-icons/md";
+import { toast } from "react-toastify";
 import { v4 } from "uuid";
 import styles from "./styles.module.scss";
 
@@ -25,14 +26,24 @@ export default function Publications() {
   const handleAdd = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (name.length <= 0) {
-        alert(
-          "Adicione um nome para a obra que tenha, pelo menos, 5 caracteres!"
-        );
-      } else if (materialType === "none" || !materialType) {
-        alert("Selecione o tipo de material");
-      } else if (!file || !banner) {
-        alert("Adicione um banner/arquivo!");
+      const errors = [
+        "Adicione um nome para a obra que tenha, pelo menos, 5 caracteres!",
+        "Selecione o tipo de material",
+        "Adicione um banner/arquivo!",
+        "Falha",
+      ];
+      const validations = [
+        name.length <= 0,
+        materialType === "none" || !materialType,
+        !file || !banner,
+      ];
+
+      if (validations[0]) {
+        toast.warning(errors[0]);
+      } else if (validations[1]) {
+        toast.warning(errors[1]);
+      } else if (validations[2]) {
+        toast.warning(errors[2]);
       } else {
         setLoading(true);
         const newPost: PublicationType = {
@@ -48,15 +59,16 @@ export default function Publications() {
         };
         AddPost(newPost)
           .then(async () => {
-            await UpdateFiles(newPost.uid, banner, file);
-            alert("Criada com sucesso");
+            await UpdateFiles(newPost.uid, banner as File, file as File);
+            toast.success("Criada com sucesso");
             setLoading(false);
             Router.push("/dashboard");
+            return;
           })
-          .catch((err) => {
-            alert("Falha");
+          .catch((errs) => {
+            toast.error(errors[3]);
             setLoading(false);
-            console.log(err);
+            console.log(errs);
           });
       }
     },
@@ -76,7 +88,7 @@ export default function Publications() {
       if (!e.target.files) return;
       const image = e.target.files[0];
       if (image.size < 68857) {
-        alert("Imagem muito pequena, selecione outra");
+        toast.warning("Imagem muito pequena, selecione outra");
         return;
       }
       setBanner(image);

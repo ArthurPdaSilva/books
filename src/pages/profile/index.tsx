@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useCallback } from "react";
 import { MdAccountCircle, MdOutlineFileUpload } from "react-icons/md";
+import { toast } from "react-toastify";
 import styles from "./styles.module.scss";
 
 export default function Profile() {
@@ -26,7 +27,7 @@ export default function Profile() {
         setImageAvatar(image);
         setAvatarUrl(URL.createObjectURL(image));
       } else {
-        alert("Envie uma imagem válida!");
+        toast.warning("Envie uma imagem válida!");
         return null;
       }
     }
@@ -36,7 +37,7 @@ export default function Profile() {
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       await updateUser({ imageAvatar, name: name as string }).then(() => {
-        alert("Alterações feitas com sucesso!");
+        toast.success("Alterações feitas com sucesso!");
         router.push("/dashboard");
       });
     },
