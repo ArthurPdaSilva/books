@@ -37,9 +37,7 @@
 
 .form {
     @include flex(column, center, none);
-    margin-top: 40px;
-    padding: 1rem;
-    gap: 1rem;
+    @include space(40px 0 0 0, 1rem, 1rem);
     width: 80vw;
 
     input {

@@ -3,13 +3,11 @@
 
 .content {
     @include flex(column, center, center);
-    padding: 10px;
+    @include space(0 0 0 200px, 10px, 0);
     min-height: 100vh;
-    margin-left: 200px;
 
     @media(max-width: 800px){
-        margin-left: 0;
-        padding: 0;
+        @include space(0, 0, 0);
         background-color: $palette2-variant;
     }
 }

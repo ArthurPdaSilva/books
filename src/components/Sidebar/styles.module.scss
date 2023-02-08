@@ -11,9 +11,8 @@
 
 .sidebar {
     @include flex(column, center, space-around);
+    @include size(100%, 200px);
     position: fixed;
-    width: 200px;
-    height: 100%;
     padding: 10px;
 
     & > a {
@@ -84,10 +83,9 @@
 
 .groupLink {
     @include flex(row, center, none);
+    @include space(0, 10px, 10px);
     cursor: pointer;
     width: 100%;
-    padding: 10px;
-    gap: 10px;
     font-size: 1.2rem;
     transition: all .3s ease-in;
     color: white !important; 

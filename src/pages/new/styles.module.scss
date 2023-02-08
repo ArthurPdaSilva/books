@@ -3,13 +3,12 @@
 
 .content {
     @include flex(row, center, center);
-    padding: 10px 15px;
     height: 100vh;
+    padding: 10px 15px;
     background-color: $palette2;
 
     @media(max-width: 800px){
-        margin-left: 0;
-        padding: 0;
+        @include space(0, 0, 0);
     }
 }
 
@@ -38,16 +37,11 @@
 }
 
 .forms {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex(column, center, center);
+    @include space(3rem 0 0 0, 15px, 10px);
     width: 60%;
-    padding: 15px;
     border-radius: $radius;
-    margin-top: 3rem;
     background-color: $palette1;
-    gap: 10px;
 
     h2 {
         font-size: 2rem;
@@ -78,9 +72,7 @@
 }
 
 .labelFile {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex(row, center, space-between);
     width: 80%;
     font-size: 1.4rem;
     color: $palette2;
@@ -103,25 +95,20 @@
 }
 
 .buttons {
-    display: flex;
+    @include flex(row, center, center);
     width: 100%;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 
     a, button {
+        @include size(8vh, 30%);
         font-size: 1.4rem;
-        width: 30%;
-        height: 8vh;
         padding: 10px;
         box-shadow: $shadow;
         border-radius: $radius;
     }
 
     a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex(row, center, center);
         color: $palette2;
         border: 1px solid $palette2;
         transition: background-color ease-in .3s;
