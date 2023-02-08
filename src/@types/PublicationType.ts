@@ -1,7 +1,11 @@
 export default interface PublicationType {
-    id: string;
+    uid: string;
     name: string;
-    type: "Livro" | "Poema" | "Conselho" | "Reflexão";
-    imageUrl: string;
+    type: string;
+    bannerUrl: string;
     fileUrl: string;
+    authorName: string;
+    authorId: string;
+    likes: number;
+    created: Date;
 }
