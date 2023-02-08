@@ -23,9 +23,15 @@ export default function Dashboard() {
               <FiPlus color="#fff" size={50} />
             </Link>
           </div>
-          <Post />
-          <Post />
-          <Post />
+          <div className={styles.containerPost}>
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+          </div>
         </div>
       </div>
     </>

@@ -1,32 +1,32 @@
-import Image from "next/image";
+import useTheme from "@/hooks/useTheme";
 import React from "react";
 import { AiOutlineHeart, AiOutlineSend } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
 import styles from "./styles.module.scss";
 
 export default function Post() {
+  const { checked } = useTheme();
+
   return (
-    <div className={styles.public}>
-      <h2 className={styles.headerContent}>As crônicas do vazio</h2>
-      <div className={styles.image}>
-        <a href="/images/myw3schoolsimage.jpg" download>
-          <Image
-            src="/teste.png"
-            alt="Poster do material"
-            width={250}
-            height={400}
-          />
-        </a>
-        <div className={styles.user}>
-          <MdAccountCircle size={40} />
-          Nome
-        </div>
-        <div className={styles.footer}>
-          <AiOutlineHeart size={30} color="red" />
-          <div className={styles.comment}>
-            <textarea placeholder="Adicionar comentário" />
-            <AiOutlineSend size={30} />
-          </div>
+    <div
+      className={styles.post}
+      style={{ backgroundImage: "url(/teste.png)", backgroundSize: "cover" }}
+    >
+      <div
+        className={checked ? `${styles.user} ${styles.darkPost}` : styles.user}
+      >
+        <MdAccountCircle size={40} title="Usuário" />
+        <span>As cascatas</span>
+      </div>
+      <div
+        className={
+          checked ? `${styles.footer} ${styles.darkPost}` : styles.footer
+        }
+      >
+        <AiOutlineHeart size={30} color="red" />
+        <div className={styles.comment}>
+          <textarea placeholder="Adicionar comentário" />
+          <AiOutlineSend size={30} />
         </div>
       </div>
     </div>

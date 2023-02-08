@@ -2,14 +2,21 @@
 @import "../../styles/variables";
 
 .content {
-    @include flex(column, center, center);
+    @include flex(column, flex-start, none);
     @include space(0 0 0 200px, 10px, 0);
-    min-height: 100vh;
+    height: 100%;
 
     @media(max-width: 800px){
         @include space(0, 0, 0);
         background-color: $palette2-variant;
     }
+}
+
+.containerPost {
+    @include flex(row, flex-start, none);
+    @include space(50px 0, 10px, 20px);
+    @include size(100%, 100%);
+    flex-wrap: wrap;
 }
 
 .containerLight {
@@ -37,6 +44,7 @@
 
 .pub {
     @include flex(row, center, space-between);
+    margin-left: 10px;
     width: 100%;
 
     a {
