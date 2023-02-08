@@ -23,7 +23,7 @@ export default function Publications() {
   const handleAdd = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (name.length <= 5) {
+      if (name.length <= 0) {
         alert(
           "Adicione um nome para a obra que tenha, pelo menos, 5 caracteres!"
         );
@@ -94,6 +94,7 @@ export default function Publications() {
               placeholder="Nome do Material"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              maxLength={8}
             />
             <select
               value={materialType}

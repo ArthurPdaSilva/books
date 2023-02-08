@@ -4,7 +4,7 @@
 .content {
     @include flex(column, flex-start, none);
     @include space(0 0 0 200px, 10px, 0);
-    height: 100vh;
+    min-height: 100vh;
 
     @media(max-width: 800px){
         @include space(0, 0, 0);
@@ -15,8 +15,9 @@
 .containerPost {
     @include flex(row, flex-start, none);
     @include space(50px 0, 10px, 20px);
-    @include size(100%, 100%);
-    flex-wrap: wrap;
+    @include size(80vh, 100%);
+    flex-wrap: wrap;    
+    overflow: auto;
 }
 
 .containerLight {
