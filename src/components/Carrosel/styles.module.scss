@@ -7,6 +7,15 @@
     width: 80vw;
     overflow-x: auto;
 
+    h1 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    @media(max-width: 800px) {
+        width: 90vw;
+    }
+
 }
 
 .rectangle {

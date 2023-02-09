@@ -55,6 +55,7 @@ export default function Form({ typeForm, buttonText, children }: FormProps) {
           placeholder="email@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="on"
           required
         />
         <input
@@ -63,6 +64,7 @@ export default function Form({ typeForm, buttonText, children }: FormProps) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           minLength={8}
+          autoComplete="on"
           required
         />
 
