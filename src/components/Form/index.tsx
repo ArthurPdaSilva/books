@@ -1,6 +1,7 @@
-import useAuth from "@/hooks/useAuth";
 import React, { useState, useCallback, ReactNode } from "react";
 import styles from "./styles.module.scss";
+
+import useAuth from "@/hooks/useAuth";
 
 interface FormProps {
   typeForm: string;

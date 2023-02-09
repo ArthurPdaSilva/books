@@ -1,6 +1,5 @@
-import { db } from "@/firebase";
-import { doc, updateDoc } from "firebase/firestore";
-import { getDownloadURL, StorageReference } from "firebase/storage";
+import useFirebase from "@/hooks/useFirebase";
+
 import BannerStorage from "./BannerStorage";
 import FileStorage from "./FileStorage";
 
@@ -9,6 +8,8 @@ export default async function UpdateFiles(
   banner: File,
   file: File
 ): Promise<string | void> {
+  const { db, getDownloadURL, updateDoc, doc } = useFirebase();
+
   const bannerRef = await BannerStorage(postId, banner);
   const bannerUrl = await getDownloadURL(bannerRef).then((url) => url);
 

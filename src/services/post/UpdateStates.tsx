@@ -1,5 +1,6 @@
 import PublicationType from "@/@types/PublicationType";
-import { DocumentData, QuerySnapshot } from "firebase/firestore";
+
+import { QuerySnapshot, DocumentData } from "@/@types/FirebaseType";
 
 export default function UpdateState(data: QuerySnapshot<DocumentData>) {
   let list: PublicationType[] = [];

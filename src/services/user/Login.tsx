@@ -1,12 +1,13 @@
 import UserType from "@/@types/UserType";
-import { auth, db } from "@/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+
+import useFirebase from "@/hooks/useFirebase";
 
 export default async function Login(
   email: string,
   password: string
 ): Promise<UserType | null> {
+  const { db, signInWithEmailAndPassword, auth, getDoc, doc } = useFirebase();
+
   const data = await signInWithEmailAndPassword(auth, email, password)
     .then(async (value) => {
       const uid = value.user.uid;

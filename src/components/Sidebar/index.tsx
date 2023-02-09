@@ -1,6 +1,9 @@
-import Link from "next/link";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
+
+import useAuth from "@/hooks/useAuth";
+import useTheme from "@/hooks/useTheme";
+
 import {
   MdAccountCircle,
   MdHome,
@@ -9,9 +12,9 @@ import {
   MdSettings,
   MdList,
 } from "react-icons/md";
-import useAuth from "@/hooks/useAuth";
+
 import Image from "next/image";
-import useTheme from "@/hooks/useTheme";
+import Link from "next/link";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();

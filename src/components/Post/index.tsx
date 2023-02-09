@@ -1,13 +1,17 @@
+import React, { useState } from "react";
+import styles from "./styles.module.scss";
+
 import PublicationType from "@/@types/PublicationType";
+
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
+
 import UpdateLikes from "@/services/post/UpdateLikes";
-import Image from "next/image";
-import React, { useState, useCallback } from "react";
-import { AiFillHeart, AiOutlineHeart, AiOutlineSend } from "react-icons/ai";
+
 import { MdAccountCircle } from "react-icons/md";
-import { toast } from "react-toastify";
-import styles from "./styles.module.scss";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
+import Image from "next/image";
 
 export default function Post({
   authorName,
@@ -25,25 +29,26 @@ export default function Post({
   );
   const [like, setLike] = useState(likes);
 
-  const handleLikes = useCallback(async () => {
+  async function loadingLikes() {
     const likesPosts = user?.likesPosts as string[];
-    if (likesPosts.includes(uid)) {
+    if (clicked) {
       const news: string[] = likesPosts.filter(
         (value) => value !== (uid as string)
       );
-      await UpdateLikes(uid, likes, false).then(() => {
+      await UpdateLikes(uid, likes, -1).then(() => {
         newPostLike(news);
-        setLike(like - 1);
       });
+      setLike(like - 1);
+      setClicked(false);
     } else {
       likesPosts.push(uid);
-      await UpdateLikes(uid, likes, true).then(() => {
+      await UpdateLikes(uid, likes, 1).then(() => {
         newPostLike(likesPosts);
-        setLike(like + 1);
       });
+      setLike(like + 1);
+      setClicked(true);
     }
-    setClicked(!clicked);
-  }, [clicked, like, likes, newPostLike, uid, user?.likesPosts, setLike]);
+  }
 
   return (
     <div className={styles.post}>
@@ -77,11 +82,12 @@ export default function Post({
         className={
           checked ? `${styles.footer} ${styles.darkPost}` : styles.footer
         }
+        onClick={loadingLikes}
       >
         {clicked ? (
-          <AiFillHeart size={30} color="red" onClick={handleLikes} />
+          <AiFillHeart size={30} color="red" />
         ) : (
-          <AiOutlineHeart size={30} color="red" onClick={handleLikes} />
+          <AiOutlineHeart size={30} color="red" />
         )}
         <span>{like}</span>
         <span className={styles.comment}>{authorName}</span>

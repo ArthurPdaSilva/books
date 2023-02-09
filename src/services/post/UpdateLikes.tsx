@@ -1,12 +1,13 @@
-import { db } from "@/firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import useFirebase from "@/hooks/useFirebase";
 
 export default async function UpdateLikes(
   uid: string,
   likes: number,
-  clicked: boolean
+  value: number
 ): Promise<string | void> {
+  const { db, doc, updateDoc } = useFirebase();
+
   return await updateDoc(doc(db, "posts", uid), {
-    likes: likes + (clicked ? 1 : -1),
+    likes: likes + value,
   });
 }

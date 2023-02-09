@@ -1,4 +1,7 @@
+import React, { createContext, useState, useCallback, useEffect } from "react";
+
 import UserType from "@/@types/UserType";
+
 import GetMyPosts from "@/services/post/GetMyPosts";
 import UpdatePost from "@/services/post/UpdatePost";
 import Login from "@/services/user/Login";
@@ -8,7 +11,7 @@ import Register from "@/services/user/Register";
 import UpdateImagem from "@/services/user/UpdateImage";
 import UpdateLikesPosts from "@/services/user/UpdateLikesPosts";
 import UpdateName from "@/services/user/UpdateName";
-import React, { createContext, useState, useCallback, useEffect } from "react";
+
 import { toast } from "react-toastify";
 
 interface AuthContextInterface {

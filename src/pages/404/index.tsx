@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
+
 import { FiRefreshCcw } from "react-icons/fi";
+
 import Router from "next/router";
 
 export default function Error() {

@@ -1,8 +1,9 @@
-import { db } from "@/firebase";
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
+import useFirebase from "@/hooks/useFirebase";
+
 import UpdateState from "./UpdateStates";
 
 export default async function GetPosts() {
+  const { getDocs, query, collection, orderBy, db, limit } = useFirebase();
   const data = await getDocs(
     query(collection(db, "posts"), orderBy("created", "desc"), limit(6))
   );

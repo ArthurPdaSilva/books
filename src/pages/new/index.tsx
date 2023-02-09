@@ -1,18 +1,24 @@
+import { FormEvent, useState, useCallback } from "react";
+import styles from "./styles.module.scss";
+import { toast } from "react-toastify";
+import { v4 } from "uuid";
+
 import PublicationType from "@/@types/PublicationType";
+
 import Sidebar from "@/components/Sidebar";
 import useAuth from "@/hooks/useAuth";
+
 import useTheme from "@/hooks/useTheme";
+
 import AddPost from "@/services/post/AddPost";
 import UpdateFiles from "@/services/post/UpdateFiles";
+
+import { AiOutlineReload } from "react-icons/ai";
+import { MdOutlineFileUpload } from "react-icons/md";
+
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import { FormEvent, useState, useCallback } from "react";
-import { AiOutlineReload } from "react-icons/ai";
-import { MdOutlineFileUpload } from "react-icons/md";
-import { toast } from "react-toastify";
-import { v4 } from "uuid";
-import styles from "./styles.module.scss";
 
 export default function Publications() {
   const { user } = useAuth();

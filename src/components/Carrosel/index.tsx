@@ -1,13 +1,14 @@
-import PublicationType from "@/@types/PublicationType";
-import useAuth from "@/hooks/useAuth";
-import useTheme from "@/hooks/useTheme";
-import GetMyPosts from "@/services/post/GetMyPosts";
 import React, { useRef, useState, useEffect } from "react";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./styles.module.scss";
 
+import PublicationType from "@/@types/PublicationType";
+
+import useAuth from "@/hooks/useAuth";
+
+import GetMyPosts from "@/services/post/GetMyPosts";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
 export default function Carrosel() {
-  const { checked } = useTheme();
   const carroselRef = useRef<HTMLDivElement>(null);
   const { user } = useAuth();
   const [myPosts, setMyPosts] = useState<PublicationType[]>([]);
@@ -42,16 +43,20 @@ export default function Carrosel() {
       ) : (
         <>
           {myPosts.map((value) => (
-            <div
-              className={styles.rectangle}
-              key={value.uid}
+            <a
+              href={value.fileUrl}
               style={{
                 backgroundImage: `url(${value.bannerUrl})`,
                 backgroundSize: "cover",
               }}
+              className={styles.rectangle}
+              target="_blank"
+              download
+              rel="noreferrer"
+              key={value.uid}
             >
               <span>{value.name}</span>
-            </div>
+            </a>
           ))}
           <div className={styles.buttons}>
             <button onClick={handleLeftClick}>

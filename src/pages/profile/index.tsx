@@ -1,14 +1,18 @@
+import { useState, useCallback } from "react";
+import styles from "./styles.module.scss";
+import { toast } from "react-toastify";
+
 import Sidebar from "@/components/Sidebar";
 import Switch from "@/components/Switch";
+
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
+
+import { MdAccountCircle, MdOutlineFileUpload } from "react-icons/md";
+
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState, useCallback } from "react";
-import { MdAccountCircle, MdOutlineFileUpload } from "react-icons/md";
-import { toast } from "react-toastify";
-import styles from "./styles.module.scss";
 
 export default function Profile() {
   const { user, updateUser } = useAuth();

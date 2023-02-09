@@ -1,6 +1,8 @@
-import useAuth from "@/hooks/useAuth";
-import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+
+import useAuth from "@/hooks/useAuth";
+
+import { useRouter } from "next/router";
 
 export default function Protected({ children }: { children: React.ReactNode }) {
   const { signed } = useAuth();

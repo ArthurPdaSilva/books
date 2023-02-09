@@ -1,14 +1,21 @@
+import { useCallback, useEffect, useState } from "react";
+import styles from "./styles.module.scss";
+
 import Post from "@/components/Post";
 import Sidebar from "@/components/Sidebar";
+
 import useTheme from "@/hooks/useTheme";
+
 import Head from "next/head";
 import Link from "next/link";
+
 import { FiPlus } from "react-icons/fi";
-import styles from "./styles.module.scss";
-import { useCallback, useEffect, useState } from "react";
+
 import PublicationType from "@/@types/PublicationType";
+
 import GetPosts from "@/services/post/GetPosts";
 import GetMorePosts from "@/services/post/GetMorePost";
+
 import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
 
 export default function Dashboard() {

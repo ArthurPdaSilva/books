@@ -1,6 +1,7 @@
-import useTheme from "@/hooks/useTheme";
 import React from "react";
 import styles from "./styles.module.scss";
+
+import useTheme from "@/hooks/useTheme";
 
 export default function Switch() {
   const { checked, setChecked } = useTheme();
