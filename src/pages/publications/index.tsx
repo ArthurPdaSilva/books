@@ -10,9 +10,9 @@ import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 
 import GetMyPosts from "@/services/post/GetMyPosts";
+import GetLikesPosts from "@/services/post/GetLikesPosts";
 
 import Head from "next/head";
-import GetLikesPosts from "@/services/post/getLikesPosts";
 import UserType from "@/@types/UserType";
 
 export default function Publications() {
