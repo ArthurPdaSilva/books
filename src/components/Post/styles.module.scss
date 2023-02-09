@@ -51,9 +51,9 @@
     padding: 10px;
     width: 100%;
     background-color: $palette2;
+    cursor: pointer;
 
     svg {
-        cursor: pointer;
         transition: all ease-in .3s;
         margin-right: 5px;
 
