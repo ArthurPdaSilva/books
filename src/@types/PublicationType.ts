@@ -7,6 +7,5 @@ export default interface PublicationType {
     photoUser: string
     authorName: string;
     authorId: string;
-    likes: number;
     created: Date;
 }

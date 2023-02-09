@@ -4,8 +4,11 @@ import styles from "./styles.module.scss";
 import { FiRefreshCcw } from "react-icons/fi";
 
 import Router from "next/router";
+import useIcons from "@/hooks/useIcons";
 
 export default function Error() {
+  const {} = useIcons();
+
   useEffect(() => {
     setTimeout(() => {
       Router.push("/");

@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./styles.module.scss";
 
 import PublicationType from "@/@types/PublicationType";
 
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
-
-import UpdateLikes from "@/services/post/UpdateLikes";
-
-import { MdAccountCircle } from "react-icons/md";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import useIcons from "@/hooks/useIcons";
 
 import Image from "next/image";
 
@@ -18,37 +14,31 @@ export default function Post({
   bannerUrl,
   fileUrl,
   name,
-  likes,
   photoUser,
   uid,
 }: PublicationType) {
   const { user, newPostLike } = useAuth();
   const { checked } = useTheme();
+  const { AiFillHeart, AiOutlineHeart, MdAccountCircle } = useIcons();
+
   const [clicked, setClicked] = useState(
     user?.likesPosts.includes(uid) as boolean
   );
-  const [like, setLike] = useState(likes);
 
-  async function loadingLikes() {
+  const loadingLikes = useCallback(() => {
     const likesPosts = user?.likesPosts as string[];
     if (clicked) {
       const news: string[] = likesPosts.filter(
         (value) => value !== (uid as string)
       );
-      await UpdateLikes(uid, likes, -1).then(() => {
-        newPostLike(news);
-      });
-      setLike(like - 1);
+      newPostLike(news);
       setClicked(false);
     } else {
       likesPosts.push(uid);
-      await UpdateLikes(uid, likes, 1).then(() => {
-        newPostLike(likesPosts);
-      });
-      setLike(like + 1);
+      newPostLike(likesPosts);
       setClicked(true);
     }
-  }
+  }, [clicked, newPostLike, uid, user?.likesPosts]);
 
   return (
     <div className={styles.post}>
@@ -89,7 +79,6 @@ export default function Post({
         ) : (
           <AiOutlineHeart size={30} color="red" />
         )}
-        <span>{like}</span>
         <span className={styles.comment}>{authorName}</span>
       </div>
     </div>

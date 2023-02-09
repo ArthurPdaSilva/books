@@ -14,7 +14,6 @@ export default function UpdateState(data: QuerySnapshot<DocumentData>) {
       bannerUrl: doc.data().bannerUrl,
       fileUrl: doc.data().fileUrl,
       photoUser: doc.data().photoUser,
-      likes: doc.data().likes,
       created: doc.data().created,
     });
   });

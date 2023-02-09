@@ -1,4 +1,8 @@
+import React, { useState } from "react";
+
 import styles from "./styles.module.scss";
+
+import PublicationType from "@/@types/PublicationType";
 
 import Carrosel from "@/components/Carrosel";
 import Sidebar from "@/components/Sidebar";
@@ -9,6 +13,7 @@ import Head from "next/head";
 
 export default function Publications() {
   const { checked } = useTheme();
+  const [myPosts, setMyPosts] = useState<PublicationType[]>([]);
 
   return (
     <>
@@ -18,8 +23,14 @@ export default function Publications() {
       <div className={checked ? styles.containerDark : styles.containerLight}>
         <Sidebar />
         <div className={styles.content}>
-          <h1>Minhas publicações</h1>
-          <Carrosel />
+          <div className={styles.likePosts}>
+            <h1>Curtidas</h1>
+            <Carrosel />
+          </div>
+          <div className={styles.myPosts}>
+            <h1>Meus posts</h1>
+            <Carrosel />
+          </div>
         </div>
       </div>
     </>

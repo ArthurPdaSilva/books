@@ -9,17 +9,18 @@ import useTheme from "@/hooks/useTheme";
 import Head from "next/head";
 import Link from "next/link";
 
-import { FiPlus } from "react-icons/fi";
-
 import PublicationType from "@/@types/PublicationType";
 
 import GetPosts from "@/services/post/GetPosts";
 import GetMorePosts from "@/services/post/GetMorePost";
+import useIcons from "@/hooks/useIcons";
 
 import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
 
 export default function Dashboard() {
   const { checked } = useTheme();
+  const { FiPlus } = useIcons();
+
   const [posts, setPosts] = useState<PublicationType[]>([]);
   const [lastDoc, setLastDoc] =
     useState<QueryDocumentSnapshot<DocumentData> | null>(null);
@@ -79,7 +80,6 @@ export default function Dashboard() {
                 authorId={value.authorId}
                 authorName={value.authorName}
                 type={value.type}
-                likes={value.likes}
                 bannerUrl={value.bannerUrl}
                 fileUrl={value.fileUrl}
                 created={value.created}

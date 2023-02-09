@@ -3,46 +3,36 @@
 
 .carrosel {
     @include flex(row, center, none);
-    margin-top: 9rem;
     scroll-behavior: smooth;
+    width: 80vw;
     overflow-x: auto;
 
-    &::-webkit-scrollbar{
-        display: none;
-    }
-
-    @media(max-width: 800px) {
-        margin-top: 3rem;
-    }
 }
 
 .rectangle {
-    @include size(300px, 250px);
-    @include space(10px, 10px, 0);
+    @include size(250px, 200px);
+    @include space(10px, 0px, 0);
     @include border-shadow(10px, 10px);
     flex: none;
 
-    a {
-        background-color: red !important;
-        width: 100px !important;
-    }
 
     span {
-        color: white;
+        border-radius: 10px 10px 0 0;
+        display: block;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        color: $palette2;
+        opacity: .7;
+        font-size: 1.2rem;
+        transition: all ease-in .3s;
+        
     }
 
-}
-
-.buttons {
-    @include flex(row, center, space-between);
-    position: absolute;
-    width: 83%;
-
-    button{
-        background-color: transparent;
+    &:hover span {
+        opacity: 1;
+        transform: scale(1.2);
     }
+    
 
-    @media(max-width: 900px){
-        gap: 60%;
-    }
 }

@@ -8,15 +8,16 @@ import Switch from "@/components/Switch";
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 
-import { MdAccountCircle, MdOutlineFileUpload } from "react-icons/md";
-
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import useIcons from "@/hooks/useIcons";
 
 export default function Profile() {
   const { user, updateUser } = useAuth();
   const { checked } = useTheme();
+  const { MdAccountCircle, MdOutlineFileUpload } = useIcons();
+
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
   const [avatarUrl, setAvatarUrl] = useState(user?.avatarUrl);

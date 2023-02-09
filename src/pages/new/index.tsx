@@ -13,16 +13,16 @@ import useTheme from "@/hooks/useTheme";
 import AddPost from "@/services/post/AddPost";
 import UpdateFiles from "@/services/post/UpdateFiles";
 
-import { AiOutlineReload } from "react-icons/ai";
-import { MdOutlineFileUpload } from "react-icons/md";
-
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
+import useIcons from "@/hooks/useIcons";
 
 export default function Publications() {
   const { user } = useAuth();
   const { checked } = useTheme();
+  const { MdOutlineFileUpload, AiOutlineReload } = useIcons();
+
   const [name, setName] = useState("");
   const [materialType, setMaterialType] = useState("");
   const [banner, setBanner] = useState<File | null>(null);
@@ -58,7 +58,6 @@ export default function Publications() {
           authorName: user?.name as string,
           photoUser: user?.avatarUrl as string,
           name,
-          likes: 0,
           type: materialType,
           bannerUrl: " ",
           fileUrl: " ",

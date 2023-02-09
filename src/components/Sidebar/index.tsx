@@ -4,21 +4,21 @@ import styles from "./styles.module.scss";
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 
-import {
-  MdAccountCircle,
-  MdHome,
-  MdAssignment,
-  MdExitToApp,
-  MdSettings,
-  MdList,
-} from "react-icons/md";
-
 import Image from "next/image";
 import Link from "next/link";
+import useIcons from "@/hooks/useIcons";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
   const { checked } = useTheme();
+  const {
+    MdAccountCircle,
+    MdHome,
+    MdAssignment,
+    MdExitToApp,
+    MdSettings,
+    MdList,
+  } = useIcons();
   const [displayMenu, setDisplayMenu] = useState(false);
 
   return (
