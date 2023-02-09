@@ -4,7 +4,7 @@
 .content {
     @include flex(column, center, center);
     @include space(0 0 0 200px, 5px 15px, 0);
-    height: 100vh;
+    min-height: 100vh;
 
     h1{
         font-weight: normal;
@@ -13,6 +13,11 @@
 
     @media(max-width: 800px){
         @include space(0, 0, 0);
+        @include flex(column, center, flex-start);
+
+        h1 {
+            font-size: 3rem;
+        }
     }
 }
 

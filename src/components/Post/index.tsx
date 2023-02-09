@@ -24,12 +24,6 @@ export default function Post({
     user?.likesPosts.includes(uid) as boolean
   );
   const [like, setLike] = useState(likes);
-  const [message, setMessage] = useState("");
-
-  const handleSend = useCallback(async () => {
-    setMessage("");
-    toast.info("Mensagem enviada ao usuário :)");
-  }, []);
 
   const handleLikes = useCallback(async () => {
     const likesPosts = user?.likesPosts as string[];
@@ -49,7 +43,7 @@ export default function Post({
       });
     }
     setClicked(!clicked);
-  }, [clicked, like, likes, newPostLike, uid, user?.likesPosts]);
+  }, [clicked, like, likes, newPostLike, uid, user?.likesPosts, setLike]);
 
   return (
     <div className={styles.post}>
