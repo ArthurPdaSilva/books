@@ -71,7 +71,9 @@ export default function Dashboard() {
             </Link>
           </div>
           <div className={styles.containerPost} onScroll={handleScroll}>
-            {posts.length === 0 && <h1>Carregando postagens...</h1>}
+            {posts.length === 0 && (
+              <h1>Carregando postagens/Nenhuma encontrada..</h1>
+            )}
             {posts.map((value) => (
               <Post
                 key={value.uid}
