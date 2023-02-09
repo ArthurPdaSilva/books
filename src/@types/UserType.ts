@@ -5,4 +5,5 @@ export default interface UserType {
     name: string;
     email: string;
     avatarUrl?: string;
+    likesPosts: string[];
 }

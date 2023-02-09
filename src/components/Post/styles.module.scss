@@ -45,7 +45,7 @@
 }
 
 .footer {
-    @include flex(row, center, none);
+    @include flex(row, center, center);
     border: .5px solid rgb(92, 92, 92);
     border-radius: 0px 0px 10px 10px;
     padding: 10px;
@@ -67,20 +67,11 @@
 .comment {
     @include flex(row, center, center);
     width: 100%;
+    border: 0;
+    resize: none;
+    border-radius: $radius;
+    background-color: transparent;
+    font-size: 1rem;
+    width: 100%;
 
-    textarea {
-        padding-top: 20px;
-        padding-left: 10px;
-        border: 0;
-        resize: none;
-        border-radius: $radius;
-        background-color: transparent;
-        font-size: 1.1rem;
-        width: 100%;
-    }
-
-    svg {
-        position: relative;
-        cursor: pointer;
-    }
 }

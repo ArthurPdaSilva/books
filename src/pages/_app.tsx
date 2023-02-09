@@ -15,19 +15,20 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <AuthProvider>
-      {authRequired.includes(router.pathname) ? (
-        <ThemeProvider>
-          <Protected>
+      <>
+        {authRequired.includes(router.pathname) ? (
+          <ThemeProvider>
+            <Protected>
+              <Component {...pageProps} />
+            </Protected>
+          </ThemeProvider>
+        ) : (
+          <Public>
             <Component {...pageProps} />
-            <ToastContainer autoClose={3000} theme="colored" />
-          </Protected>
-        </ThemeProvider>
-      ) : (
-        <Public>
-          <Component {...pageProps} />
-          <ToastContainer autoClose={3000} theme="colored" />
-        </Public>
-      )}
+          </Public>
+        )}
+        <ToastContainer autoClose={3000} theme="colored" />
+      </>
     </AuthProvider>
   );
 }

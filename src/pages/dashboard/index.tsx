@@ -69,9 +69,10 @@ export default function Dashboard() {
                 key={value.uid}
                 uid={value.uid}
                 name={value.name}
-                authorName={value.authorName}
                 authorId={value.authorId}
+                authorName={value.authorName}
                 type={value.type}
+                likes={value.likes}
                 bannerUrl={value.bannerUrl}
                 fileUrl={value.fileUrl}
                 created={value.created}

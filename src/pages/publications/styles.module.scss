@@ -7,6 +7,10 @@
 
     @media(max-width: 800px){
         @include space(0, 0, 0);
+        
+        h1 {
+            text-align: center;
+        }
     }
 }
 

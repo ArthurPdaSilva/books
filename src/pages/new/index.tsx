@@ -33,7 +33,7 @@ export default function Publications() {
         "Falha",
       ];
       const validations = [
-        name.length <= 0,
+        name.length <= 5,
         materialType === "none" || !materialType,
         !file || !banner,
       ];
@@ -47,15 +47,16 @@ export default function Publications() {
       } else {
         setLoading(true);
         const newPost: PublicationType = {
-          authorId: user?.uid as string,
           uid: v4(),
+          authorId: user?.uid as string,
           authorName: user?.name as string,
-          created: new Date(),
           photoUser: user?.avatarUrl as string,
           name,
+          likes: 0,
           type: materialType,
           bannerUrl: " ",
           fileUrl: " ",
+          created: new Date(),
         };
         AddPost(newPost)
           .then(async () => {
@@ -110,7 +111,7 @@ export default function Publications() {
               placeholder="Nome do Material"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              maxLength={8}
+              maxLength={16}
             />
             <select
               value={materialType}

@@ -131,6 +131,12 @@
             animation: animate 1s infinite;
         }
     }
+
+    @media(max-width: 800px) {
+        button {
+            flex: 1;
+        }
+    }
 }
 
 

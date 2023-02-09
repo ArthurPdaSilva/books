@@ -63,6 +63,7 @@
 
     @media(max-width: 800px) {
         position: absolute;
+        justify-content: center;
         overflow: hidden;
         z-index: 99;
         top: 45px;
@@ -71,6 +72,10 @@
         align-items: center;
         background-color:  $palette1;
         width: 100%;    
+
+        span {
+            text-align: center;
+        }
     }
 }
 

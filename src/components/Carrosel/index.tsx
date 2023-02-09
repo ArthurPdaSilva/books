@@ -2,7 +2,6 @@ import PublicationType from "@/@types/PublicationType";
 import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 import GetMyPosts from "@/services/post/GetMyPosts";
-import GetPosts from "@/services/post/GetPosts";
 import React, { useRef, useState, useEffect } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./styles.module.scss";
@@ -39,7 +38,7 @@ export default function Carrosel() {
   return (
     <div className={styles.carrosel} ref={carroselRef}>
       {myPosts?.length === 0 ? (
-        <h1>Ainda não tem publicou nada</h1>
+        <h1>Publique alguma coisa...</h1>
       ) : (
         <>
           {myPosts.map((value) => (
@@ -56,10 +55,10 @@ export default function Carrosel() {
           ))}
           <div className={styles.buttons}>
             <button onClick={handleLeftClick}>
-              <MdKeyboardArrowLeft size={68} color="#fff" />
+              <MdKeyboardArrowLeft size={68} color="rgb(92, 92, 92)" />
             </button>
             <button onClick={handleRightClick}>
-              <MdKeyboardArrowRight size={68} color="#fff" />
+              <MdKeyboardArrowRight size={68} color="rgb(92, 92, 92)" />
             </button>
           </div>
         </>

@@ -6,6 +6,7 @@ import Logout from "@/services/user/Logout";
 import PhotoStorage from "@/services/user/PhotoStorage";
 import Register from "@/services/user/Register";
 import UpdateImagem from "@/services/user/UpdateImage";
+import UpdateLikesPosts from "@/services/user/UpdateLikesPosts";
 import UpdateName from "@/services/user/UpdateName";
 import React, { createContext, useState, useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -16,6 +17,7 @@ interface AuthContextInterface {
   signUp: ({ name, email, password }: RegisterProps) => void;
   signIn: ({ email, password }: LoginProps) => void;
   updateUser: ({ imageAvatar, name }: UpdateProps) => Promise<void>;
+  newPostLike: (likesPosts: string[]) => void;
   logout: () => void;
 }
 
@@ -71,8 +73,8 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
     ({ name, email, password }: RegisterProps) => {
       Register(email, password, name)
         .then((data) => {
-          saveChangeUser(data as UserType);
           toast.success("Bem vindo a plataforma!");
+          saveChangeUser(data as UserType);
         })
         .catch((err) => {
           toast.error("Conta já criada!");
@@ -86,8 +88,8 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
     ({ email, password }: LoginProps) => {
       Login(email, password)
         .then((data) => {
-          saveChangeUser(data as UserType);
           toast.success(`Bem vindo de volta, ${data?.name}!`);
+          saveChangeUser(data as UserType);
         })
         .catch((err) => {
           toast.error("Email ou senha inconrretos!");
@@ -95,6 +97,19 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
         });
     },
     [saveChangeUser]
+  );
+
+  const newPostLike = useCallback(
+    async (likesPosts: string[]) => {
+      const newUser = user as UserType;
+      await UpdateLikesPosts(newUser.uid, likesPosts)
+        .then(() => {
+          newUser.likesPosts = likesPosts;
+          saveChangeUser(newUser);
+        })
+        .catch((err) => console.log(err));
+    },
+    [saveChangeUser, user]
   );
 
   const updateUser = useCallback(
@@ -126,6 +141,7 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
         name: user.name,
         email: user.email,
         avatarUrl: user.avatarUrl ?? " ",
+        likesPosts: user.likesPosts ?? [],
       })
     );
   }
@@ -147,6 +163,7 @@ export default function AuthProvider({ children }: { children: JSX.Element }) {
         signIn,
         logout,
         updateUser,
+        newPostLike,
       }}
     >
       {children}
