@@ -11,7 +11,7 @@ export default function Carrosel({ posts }: PostsProp) {
   return (
     <div className={styles.carrosel}>
       {posts.length === 0 ? (
-        <h1>Publique alguma coisa...</h1>
+        <h1>Nenhum material encontrado ainda...</h1>
       ) : (
         <>
           {posts.map((value) => (
